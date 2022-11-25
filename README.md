@@ -1,8 +1,8 @@
 # Projet_Blazor
 
-<p align="center">
+**<p align="center">
 ![Image de l'application](craftsharp-transformed.png)
-</p>
+</p>**
 
 **Nom de l’application** : Craft#
 </br>
