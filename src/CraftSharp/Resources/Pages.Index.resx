@@ -132,4 +132,7 @@
   <data name="Shop" xml:space="preserve">
     <value>Shop</value>
   </data>
+  <data name="subtext-img" xml:space="preserve">
+    <value>subtext_en-EN</value>
+  </data>
 </root>

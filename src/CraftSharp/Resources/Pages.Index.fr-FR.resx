@@ -118,18 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Inventory" xml:space="preserve">
-    <value>Envanter</value>
+    <value>Inventaire</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Giriş yapmak</value>
+    <value>Se connecter</value>
   </data>
   <data name="Opening" xml:space="preserve">
-    <value>Açılış</value>
+    <value>Ouverture</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Kayıt ol</value>
+    <value>Créer un compte</value>
   </data>
   <data name="Shop" xml:space="preserve">
-    <value>Mağaza</value>
+    <value>Magasin</value>
+  </data>
+  <data name="subtext-img" xml:space="preserve">
+    <value>subtext_fr-FR</value>
   </data>
 </root>

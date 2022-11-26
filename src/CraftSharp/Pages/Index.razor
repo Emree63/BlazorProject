@@ -1,8 +1,15 @@
 ﻿@page "/"
+@using System.Globalization
 
+<p>
+    <b>CurrentCulture</b>: @CultureInfo.CurrentCulture
+</p>
 <PageTitle>Index</PageTitle>
 
+
+<h3>@Localizer["Opening"]</h3>
 <h1>Hello, world!</h1>
+<img src="images/@(Localizer["subtext-img"]).png" />
 
 Welcome to your new app.
 
