@@ -5,6 +5,10 @@
     top: -2px;
 }
 
+.bar{
+    display: flex;
+}
+
 .nav-image {
     width: 18rem;
     color: #ffffff;
