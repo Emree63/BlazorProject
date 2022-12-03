@@ -10,15 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Models\Armor.cs" />
-    <Content Include="Models\Block.cs" />
-    <Content Include="Models\Boots.cs" />
-    <Content Include="Models\Chestplate.cs" />
-    <Content Include="Models\Helmet.cs" />
     <Content Include="Models\Item.cs" />
-    <Content Include="Models\Leggings.cs" />
-    <Content Include="Models\Rarities.cs" />
-    <Content Include="Models\Tool.cs" />
+	<Content Include="Models\ItemModel.cs" />
+	<Content Include="Models\Rarities.cs" />
     <Content Include="Models\Trade.cs" />
   </ItemGroup>
 

@@ -1,7 +1,7 @@
 ﻿using CraftSharp.Components;
 using CraftSharp.Models;
 
-namespace Blazor.Services
+namespace CraftSharp.Services
 {
     public interface IDataService
     {

@@ -1,4 +1,5 @@
 using CraftSharp.Data;
+using CraftSharp.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Localization;
@@ -17,6 +18,10 @@ builder.Services.AddControllers();
 
 // Add the localization to the app and specify the resources path
 builder.Services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IDataService, DataApiService>();
 
 // Configure the localtization
 builder.Services.Configure<RequestLocalizationOptions>(options =>

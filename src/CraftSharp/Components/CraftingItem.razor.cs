@@ -2,7 +2,7 @@
 using CraftSharp.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace Blazor.Components
+namespace CraftSharp.Components
 {
     public partial class CraftingItem
     {
