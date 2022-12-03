@@ -8,7 +8,15 @@
 .nav-image {
     width: 18rem;
     color: #ffffff;
+    margin-top: 100px;
+    width: 50%;
+    position: absolute;
+}
 
+.navbar {
+    overflow: visible;
+    position: static;
+    height: 150px;
 }
 
 .button {
