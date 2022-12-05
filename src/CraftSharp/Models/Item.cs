@@ -13,6 +13,6 @@
         public DateTime? UpdatedDate { get; set; }
         public string ImageBase64 { get; set; }
 
-        public Rarities Rarity { get; set; }
+        //public Rarities Rarity { get; set; }
     }
 }

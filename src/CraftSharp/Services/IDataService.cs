@@ -14,8 +14,9 @@ namespace CraftSharp.Services
 
         Task Update(int id, ItemModel model);
         Task Delete(int id);
-
         Task<List<CraftingRecipe>> GetRecipes();
+
+        //Task<List<CraftingRecipe>> GetRecipes();
     }
 }
 

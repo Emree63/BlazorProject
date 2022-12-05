@@ -36,7 +36,7 @@ namespace CraftSharp.Models
 
         public string ImageBase64 { get; set; }
        
-        [Required]
-        public Rarities Rarity { get; set; }
+        /*[Required]
+        public Rarities Rarity { get; set; }*/
     }
 }

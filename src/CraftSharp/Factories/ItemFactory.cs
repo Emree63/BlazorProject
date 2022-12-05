@@ -17,7 +17,7 @@ namespace CraftSharp.Factories
                 StackSize = item.StackSize,
                 ImageContent = imageContent,
                 ImageBase64 = string.IsNullOrWhiteSpace(item.ImageBase64) ? Convert.ToBase64String(imageContent) : item.ImageBase64,
-                Rarity = item.Rarity
+                //Rarity = item.Rarity
             };
         }
 
@@ -34,7 +34,7 @@ namespace CraftSharp.Factories
                 StackSize = model.StackSize,
                 CreatedDate = DateTime.Now,
                 ImageBase64 = Convert.ToBase64String(model.ImageContent),
-                Rarity = model.Rarity
+                //Rarity = model.Rarity
             };
         }
 
@@ -48,7 +48,7 @@ namespace CraftSharp.Factories
             item.StackSize = model.StackSize;
             item.UpdatedDate = DateTime.Now;
             item.ImageBase64 = Convert.ToBase64String(model.ImageContent);
-            item.Rarity = model.Rarity;
+            //item.Rarity = model.Rarity;
 
     }
 }

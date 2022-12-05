@@ -1,3 +1,8 @@
+using Blazored.LocalStorage;
+using Blazorise;
+using Blazored.Modal;
+using Blazorise.Bootstrap;
+using Blazorise.Icons.FontAwesome;
 using CraftSharp.Data;
 using CraftSharp.Services;
 using Microsoft.AspNetCore.Components;
@@ -21,7 +26,16 @@ builder.Services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
 
 builder.Services.AddHttpClient();
 
-builder.Services.AddScoped<IDataService, DataApiService>();
+builder.Services.AddBlazoredModal();
+
+builder.Services
+   .AddBlazorise()
+   .AddBootstrapProviders()
+   .AddFontAwesomeIcons();
+
+builder.Services.AddBlazoredLocalStorage();
+
+builder.Services.AddScoped<IDataService, DataLocalService>();
 
 // Configure the localtization
 builder.Services.Configure<RequestLocalizationOptions>(options =>
