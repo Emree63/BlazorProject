@@ -117,17 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
   <data name="Created" xml:space="preserve">
     <value>Date de création</value>
   </data>
   <data name="Display" xml:space="preserve">
     <value>Nom</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editer</value>
+  </data>
   <data name="Enchant" xml:space="preserve">
     <value>Catégories d'enchantement</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Bonjour tout le monde!</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
   </data>
   <data name="Maximum" xml:space="preserve">
     <value>Durabilité maximale</value>
@@ -137,6 +149,9 @@
   </data>
   <data name="Stack" xml:space="preserve">
     <value>Taille de la pile</value>
+  </data>
+  <data name="Supp" xml:space="preserve">
+    <value>Supprimer</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Liste des éléments</value>

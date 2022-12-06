@@ -17,6 +17,9 @@ namespace CraftSharp.Pages
         private int totalItem;
 
         [Inject]
+        public IStringLocalizer<List> Localizer { get; set; }
+
+        [Inject]
         public NavigationManager NavigationManager { get; set; }
 
         [CascadingParameter]

@@ -35,7 +35,7 @@ builder.Services
 
 builder.Services.AddBlazoredLocalStorage();
 
-builder.Services.AddScoped<IDataService, DataLocalService>();
+builder.Services.AddScoped<IDataService, DataApiService>();
 
 // Configure the localtization
 builder.Services.Configure<RequestLocalizationOptions>(options =>
