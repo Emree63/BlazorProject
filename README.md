@@ -1,5 +1,7 @@
 <div align = center>
+
 ![Image de l'application](CraftSharp-Logo.png)
+
 </div>
 
 **Nom de l’application** : Craft#
