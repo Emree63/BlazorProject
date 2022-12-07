@@ -1,0 +1,37 @@
+﻿@page "/connexion"
+@layout InscriptionLayout
+@inject NavigationManager NavManager
+
+    <div class="option">
+        <h1>Connexion</h1>
+        <div>
+             <EditForm Model="@connexion" OnValidSubmit="@seConnecter">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="editForm">
+                <p>
+                    <label for="display-name">
+                        Pseudonyme:
+                         <InputText id="name" @bind-Value="@connexion.Name" />
+                    </label>
+                </p>
+                <p>
+                    <label for="name">
+                        Mot de passe:
+                         <InputText id="password"  type="password" @bind-Value="@connexion.Password" />
+                     </label>
+                </p>
+            </div>
+             <div class="choix">
+                  <button classtype="submit"> Se connecter </button>  
+             </div>
+            </EditForm>
+        </div> 
+    </div>
+    <object>
+        <param name="autostart" value="true">
+        <param name="src" value="../audio/audio.mp3">
+        <param name="autoplay" value="true"> 
+        <embed src="../audio/audio.mp3" controller="true" autoplay="true" autostart="True" type="audio/mp3" />
+    </object>

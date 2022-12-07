@@ -1,0 +1,50 @@
+﻿@page "/inscription"
+@layout InscriptionLayout
+@inject NavigationManager NavManager
+
+    <div class="option">
+        <h1>Inscription</h1>
+        <div>
+          <EditForm Model="@inscription" OnValidSubmit="@inscrire">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="editForm">
+                <p>
+                    <label for="email">
+                        Email:
+                         <InputText id="email" @bind-Value="@inscription.Email" />
+                     </label>
+                </p>
+                <p>
+                    <label for="pseudo">
+                        Pseudonyme:
+                         <InputText id="pseudo" @bind-Value="@inscription.Pseudo" />
+                    </label>
+                </p>
+                <p>
+                    <label for="password">
+                        Mot de passe:
+                         <InputText id="password"  type="password" @bind-Value="@inscription.Password" />
+                     </label>
+                </p>
+                <p>
+                    <label for="confimPasswd">
+                        Mot de passe:
+                         <InputText id="confimPasswd"  type="password" @bind-Value="@inscription.ConfirmPasswd" />
+                     </label>
+                </p>
+            </div>
+            <div class="choix">
+                 <button classtype="submit"> Valider </button>    
+             </div>
+          </EditForm>
+            
+        </div> 
+    </div>
+    <object>
+        <param name="autostart" value="true">
+        <param name="src" value="../audio/audio.mp3">
+        <param name="autoplay" value="true"> 
+        <embed src="../audio/audio.mp3" controller="true" autoplay="true" autostart="True" type="audio/mp3" />
+    </object>
