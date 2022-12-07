@@ -35,7 +35,7 @@ Notre environnement de travail se base sur plusieurs outils :👇
 &nbsp; ![HTML](https://img.shields.io/badge/HTML-000?style=for-the-badge&logo=html5&logoColor=white&color=orange)
 &nbsp; ![CSS](https://img.shields.io/badge/CSS-000?style=for-the-badge&logo=css3&logoColor=white&color=darkblue)
 &nbsp; ![Blazor](https://img.shields.io/badge/Blazor-000?style=for-the-badge&logo=blazor&logoColor=white&color=purple)
-&nbsp; ![C#](https://img.shields.io/badge/Blazor-000?style=for-the-badge&logo=csharp&logoColor=white&color=blue)
+&nbsp; ![C#](https://img.shields.io/badge/Csharp-000?style=for-the-badge&logo=csharp&logoColor=white&color=blue)
 
 ---
 
