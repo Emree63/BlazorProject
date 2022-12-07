@@ -46,7 +46,6 @@ Notre environnement de travail se base sur plusieurs outils :👇
 # Technicien en charge de l'application
 
 La composition pour le projet se voit réaliser par trois élèves de l'IUT d'aubière:
-
 <br>
 ⚙️ Emre KARTAL
 <br>
