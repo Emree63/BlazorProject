@@ -4,7 +4,7 @@
 
 </div>
 
-**Nom de l’application** : Craft#
+**Nom de l’application** : Craft# 🕹
 </br>
 
 **Thème de l’application** : Répertorier son inventaire.
@@ -46,9 +46,9 @@ Notre environnement de travail se base sur plusieurs outils :👇
 # Technicien en charge de l'application
 
 La composition pour le projet se voit réaliser par trois élèves de l'IUT d'aubière:
-- Emre KARTAL
-- Rayhan HASSOU 
-- Arthur VALIN 
+⚙️ Emre KARTAL
+⚙️ Rayhan HASSOU 
+⚙️ Arthur VALIN 
 
 <div align = center>
 © Groupe 4
