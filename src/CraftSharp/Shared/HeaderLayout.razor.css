@@ -1,44 +1,89 @@
 ﻿
+.topbar {
+    background: url("../Images/nav_back.jpg") top center/cover no-repeat fixed;
+    align-content: center;
+}
+
 .oi {
     width: 3rem;
     font-size: 1.7rem;
     top: -2px;
 }
 
+.btn_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 150px;
+}
+
 .bar{
     display: flex;
+}
+
+.nav-item {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.topbar_itemimg {
+    height: 3rem;
 }
 
 .nav-image {
     width: 18rem;
     color: #ffffff;
     margin-top: 100px;
-    width: 50%;
+    width: 20%;
     position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.topbar_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar {
+    background-color: transparent;
     overflow: visible;
     position: static;
     height: 150px;
 }
 
+nav-link {
+    height: 100%;
+}
+
+.topbar_content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .button {
-    height: 5rem;
     width: 11rem;
     text-decoration: none;
     text-align: center;
     color: white;
     cursor: pointer;
-    background: url('Images/btn1.png') no-repeat;
+    background: url('Images/btn1.png') center center/contain no-repeat;
+    background-size: 100% 100%;
     font-family: SilkscreenNormal;
     line-height: 26px;
     padding-top: 6px;
 }
 
-.button:hover {
-    background: url('Images/btn2.png') no-repeat;
-}
+    .button:hover {
+        background: url('Images/btn2.png')center center/contain no-repeat;
+        background-size: 100% 100%;
+    }
 
 .nav-item {
     font-size: 1.1rem;
