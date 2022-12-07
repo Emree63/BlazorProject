@@ -11,9 +11,8 @@
 
 }
 
-.button {
-    height: 5rem;
-    width: 11rem;
+button {
+    width: 12rem;
     text-decoration: none;
     text-align: center;
     color: white;
@@ -22,9 +21,10 @@
     font-family: SilkscreenNormal;
     line-height: 26px;
     padding-top: 6px;
+    font-family: Minecraft;
 }
 
-.button:hover {
+button:hover {
     background: url('Images/btn2.png') no-repeat;
 }
 

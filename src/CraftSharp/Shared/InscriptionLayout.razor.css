@@ -1,0 +1,52 @@
+﻿@font-face {
+    font-family: "Minecraft";
+    src: url("fonts/Minecraft.ttf") format("truetype");
+}
+
+body {
+    background-image: url("Images/fond.jpg");
+    height: 100%
+}
+
+.connexionBody {
+    background-image: url("Images/fond.jpg");
+    width: 100%;
+    min-height: 100vh;
+}
+
+header img {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+    footer p {
+        color: white;
+        font-family: Minecraft;
+    }
+
+.p2 {
+    float: right;
+}
+
+button {
+    width: 12rem;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    background: url('Images/btn1.png') no-repeat;
+    font-family: SilkscreenNormal;
+    line-height: 26px;
+    padding-top: 6px;
+    font-family: Minecraft;
+}

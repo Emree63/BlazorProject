@@ -1,0 +1,58 @@
+﻿.option {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px
+}
+
+button:hover {
+    background: url('Images/btn2.png') no-repeat;
+}
+
+h1 {
+    color: white;
+    font-family: Minecraft;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.choix {
+    display: flex;
+    justify-content: space-around;
+}
+
+object {
+    visibility: hidden;
+}
+
+button {
+    width: 12rem;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    background: url('Images/btn1.png') no-repeat;
+    font-family: SilkscreenNormal;
+    line-height: 26px;
+    padding-top: 6px;
+    font-family: Minecraft;
+}
+
+InputText {
+    width: 100%;
+}
+
+.ecrire {
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em
+}
+
+label {
+    width: 15rem;
+}
+
+.editForm {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 100%;
+}

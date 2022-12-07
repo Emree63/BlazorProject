@@ -8,5 +8,15 @@ namespace CraftSharp.Shared
     {
         [Inject]
         public IStringLocalizer<Index> Localizer { get; set; }
+
+        void goInscription()
+        {
+            navigationManager.NavigateTo("inscription");
+        }
+
+        void goConnexion()
+        {
+            navigationManager.NavigateTo("connexion");
+        }
     }
 }
