@@ -1,8 +1,6 @@
-# Projet_Blazor
-
-**<p align="center">
+<div align = center>
 ![Image de l'application](CraftSharp-Logo.png)
-</p>**
+</div>
 
 **Nom de l’application** : Craft#
 </br>
@@ -10,7 +8,7 @@
 **Thème de l’application** : Répertorier son inventaire.
 </br>
 
-**Récapitulation de notre application** :
+**Récapitulation de notre application** : 👇
 
 </br>
 
@@ -24,15 +22,32 @@ La racine de notre gitlab est composé de deux dossiers essentiels au projet:
 
 [**doc**](doc) : **Documentation de l'application**
 
-[**Solution de l'application**](src/CraftSharp/CraftSharp.sln) : **Documentation de l'application**
+👉 [**Solution de l'application**](src/CraftSharp/CraftSharp.sln)
 
 # Environnement de Travail
 
-Notre environnement de travail se base essentiellement sur du HTML, C# (via Blazor)
+Notre environnement de travail se base sur plusieurs outils :👇
+
+<div align = center>
+
+---
+
+&nbsp; ![HTML](https://img.shields.io/badge/HTML-000?style=for-the-badge&logo=html5&logoColor=white&color=orange)
+&nbsp; ![CSS](https://img.shields.io/badge/CSS-000?style=for-the-badge&logo=css3&logoColor=white&color=darkblue)
+&nbsp; ![Blazor](https://img.shields.io/badge/Blazor-000?style=for-the-badge&logo=blazor&logoColor=white&color=purple)
+&nbsp; ![C#](https://img.shields.io/badge/Blazor-000?style=for-the-badge&logo=csharp&logoColor=white&color=blue)
+
+---
+
+</div>
 
 # Technicien en charge de l'application
 
 La composition pour le projet se voit réaliser par trois élèves de l'IUT d'aubière:
-- Emre KARTAL (Groupe 4)
-- Rayhan HASSOU (Groupe 4)
-- Arthur VALIN (Groupe 4)
+- Emre KARTAL
+- Rayhan HASSOU 
+- Arthur VALIN 
+
+<div align = center>
+© Groupe 4
+</div>
