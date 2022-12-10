@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace CraftSharp.Pages
 {
-    public partial class Crafting
+    public partial class TableDeCraft
     {
         [Inject]
         public IDataService DataService { get; set; }

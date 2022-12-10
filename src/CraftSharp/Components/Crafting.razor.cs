@@ -10,9 +10,6 @@ namespace CraftSharp.Components
     {
         private Item _recipeResult;
 
-        [CascadingParameter]
-        public Crafting Parent { get; set; }
-
         public Crafting()
         {
             Actions = new ObservableCollection<CraftingAction>();

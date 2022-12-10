@@ -3,4 +3,17 @@
     height: 64px;
     border: 1px solid;
     overflow: hidden;
+    position: relative;
+}
+
+
+
+p {
+    position: absolute;
+    top: 0;
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, .4);
+    width: 64px;
+    font-size: .75em;
 }
