@@ -1,1 +1,25 @@
-﻿
+﻿.bedrock_footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0
+}
+
+.bedrock_footer_img {
+    width: 100%;
+}
+
+body {
+    background: url("../Images/blur_background.jpg") center center/cover no-repeat fixed;
+}
+
+.main_div {
+    background: url("../Images/blur_background.jpg") center center/cover no-repeat fixed;
+    color: white;
+    min-height: 100vh;
+    position: relative
+}
+
+.culture{
+    position: absolute;
+    bottom: 0;
+}

@@ -10,7 +10,7 @@
                     <li class="nav-item">
                         <NavLink class="nav-link" href="List">
                             <span class="topbar_item">
-                                <img src="/Images/inventory_icon.png" class="topbar_itemimg"/> Inventaire
+                                <img src="/Images/inventory_icon.png" class="topbar_itemimg"/> @Localizer["Inventory"]
                             </span>
                         </NavLink>
                     </li>
@@ -19,24 +19,25 @@
                     <li class="nav-item">
                         <NavLink class="nav-link" href="counter">
                             <span class="topbar_item">
-                                <img src="/Images/shop_icon.png" class="topbar_itemimg"/> Magasin
+                                <img src="/Images/shop_icon.png" class="topbar_itemimg"/> @Localizer["Shop"]
                             </span>
                         </NavLink>
                     </li>
-                    <span>
+                    <span class="img_wrap">
                         <img class="nav-image" src="Images/CraftSharp-Logo.png" alt="Logo Application"/>
+                        <img class="nav-image" src="/Images/@(Localizer["subtext-img"]).png" width="70%" />
                      </span>
 
                     <li class="nav-item">
                         <NavLink class="nav-link" href="fetchdata">
                             <span class="topbar_item">
-                                <img src="/Images/opening_icon.png" class="topbar_itemimg"/> Ouverture
+                                <img src="/Images/opening_icon.png" class="topbar_itemimg"/> @Localizer["Opening"]
                             </span>
                         </NavLink>
                     </li>
                      <span class="btn_wrap">
-                        <div class="button"> Se connecter</div>
-                        <div class="button"> S'inscrire</div>
+                        <div class="button"> @Localizer["Login"]</div>
+                        <div class="button"> @Localizer["Register"]</div>
                      </span>
                 </ul>
             </div>
