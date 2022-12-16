@@ -5,28 +5,27 @@
     <div class="option">
         <h1>Connexion</h1>
         <div>
-             <EditForm Model="@connexion" OnValidSubmit="@seConnecter">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
+             <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="loginRequest">
+                <DataAnnotationsValidator />
 
-            <div class="editForm">
-                <p>
-                    <label for="display-name">
-                        Pseudonyme:
-                         <InputText id="name" @bind-Value="@connexion.Name" />
-                    </label>
-                </p>
-                <p>
-                    <label for="name">
-                        Mot de passe:
-                         <InputText id="password"  type="password" @bind-Value="@connexion.Password" />
-                     </label>
-                </p>
-            </div>
-             <div class="choix">
-                  <button classtype="submit"> Se connecter </button>  
-             </div>
-            </EditForm>
+                <label for="inputUsername" class="sr-only">Pseudonyme</label>
+                <InputText id="inputUsername" class="form-control" @bind-Value="loginRequest.UserName" autofocus placeholder="Entrez votre pseudonyme" />
+                <ValidationMessage For="@(() => loginRequest.UserName)" />
+
+                 <br />
+                <label for="inputPassword" class="sr-only">Mot de passe</label>
+                <InputText type="password" id="inputPassword" class="form-control" placeholder="Entrez votre mot de passe" @bind-Value="loginRequest.Password" />
+                <ValidationMessage For="@(() => loginRequest.Password)" />
+
+                 <br />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+                <br />
+                <label class="text-danger">@error</label>
+                <NavLink href="register">
+                    <h6 class="font-weight-normal text-center">Creer un compte</h6>
+                </NavLink>
+        </EditForm>
         </div> 
     </div>
     <object>

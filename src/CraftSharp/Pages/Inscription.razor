@@ -5,40 +5,31 @@
     <div class="option">
         <h1>Inscription</h1>
         <div>
-          <EditForm Model="@inscription" OnValidSubmit="@inscrire">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
+          <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="registerRequest">
+                <DataAnnotationsValidator />
 
-            <div class="editForm">
-                <p>
-                    <label for="email">
-                        Email:
-                         <InputText id="email" @bind-Value="@inscription.Email" />
-                     </label>
-                </p>
-                <p>
-                    <label for="pseudo">
-                        Pseudonyme:
-                         <InputText id="pseudo" @bind-Value="@inscription.Pseudo" />
-                    </label>
-                </p>
-                <p>
-                    <label for="password">
-                        Mot de passe:
-                         <InputText id="password"  type="password" @bind-Value="@inscription.Password" />
-                     </label>
-                </p>
-                <p>
-                    <label for="confimPasswd">
-                        Mot de passe:
-                         <InputText id="confimPasswd"  type="password" @bind-Value="@inscription.ConfirmPasswd" />
-                     </label>
-                </p>
-            </div>
-            <div class="choix">
-                 <button classtype="submit"> Valider </button>    
-             </div>
-          </EditForm>
+                <label for="inputUsername" class="sr-only">Pseudonyme</label>
+                <InputText id="inputUsername" class="form-control" placeholder="Username" autofocus @bind-Value="@registerRequest.UserName" />
+                <ValidationMessage For="@(() => registerRequest.UserName)" />
+
+                 <br />
+                <label for="inputPassword" class="sr-only">Mot de passe</label>
+                <InputText type="password" id="inputPassword" class="form-control" placeholder="Entrez votre mot de passe" @bind-Value="@registerRequest.Password" />
+                <ValidationMessage For="@(() => registerRequest.Password)" />
+
+                <br />
+                <label for="inputPasswordConfirm" class="sr-only">Confirmation</label>
+                <InputText type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirmez votre mot de passe" @bind-Value="@registerRequest.PasswordConfirm" />
+                <ValidationMessage For="@(() => registerRequest.PasswordConfirm)" />
+
+                <br />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire'</button>
+
+                <label class="text-danger">@error</label>
+                <NavLink href="login">
+                    <h6 class="font-weight-normal text-center">Vous avez un compte ? Connectez vous</h6>
+                </NavLink>
+        </EditForm>
             
         </div> 
     </div>
