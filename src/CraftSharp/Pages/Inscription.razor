@@ -5,11 +5,12 @@
     <div class="option">
         <h1>Inscription</h1>
         <div>
-          <EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="registerRequest">
+          <EditForm class="form-signin" OnValidSubmit="@OnSubmit" Model="@registerRequest">
                 <DataAnnotationsValidator />
+                <ValidationSummary />
 
                 <label for="inputUsername" class="sr-only">Pseudonyme</label>
-                <InputText id="inputUsername" class="form-control" placeholder="Username" autofocus @bind-Value="@registerRequest.UserName" />
+                <InputText id="inputUsername" class="form-control" placeholder="Entrez votre pseudonyme" autofocus @bind-Value="@registerRequest.UserName" />
                 <ValidationMessage For="@(() => registerRequest.UserName)" />
 
                  <br />
@@ -23,10 +24,10 @@
                 <ValidationMessage For="@(() => registerRequest.PasswordConfirm)" />
 
                 <br />
-                <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire'</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire</button>
 
                 <label class="text-danger">@error</label>
-                <NavLink href="login">
+                <NavLink href="connexion">
                     <h6 class="font-weight-normal text-center">Vous avez un compte ? Connectez vous</h6>
                 </NavLink>
         </EditForm>

@@ -12,6 +12,27 @@
 <img src="images/@(Localizer["subtext-img"]).png" width="70%" />
 <br />
 
-Welcome to your new app.
+<AuthorizeView>
+    <Authorized>
+        <h1>Hello @context.User.Identity.Name !!</h1>
+
+        <p>Welcome to Blazor Learner.</p>
+        
+        <ul>
+            @foreach (var claim in context.User.Claims)
+            {
+                <li>@claim.Type: @claim.Value</li>
+            }
+        </ul>
+
+    </Authorized>
+    <Authorizing>
+        <h1>Loading ...</h1>
+    </Authorizing>
+    <NotAuthorized>
+        <h1>Echec de la connexion!</h1>
+        <p>Vous n'etes pas connecté</p>
+    </NotAuthorized>
+</AuthorizeView>
 
 <SurveyPrompt Title="How is Blazor working for you?" />

@@ -9,7 +9,7 @@ namespace CraftSharp.Models
         public string? UserName { get; set; }
 
         [Required(ErrorMessage = "Le mot de passe est obligatoire.")]
-        [MinLength(6, ErrorMessage = "Le mot de passe est trop court")]
+        [MinLength(4, ErrorMessage = "Le mot de passe est trop court")]
         public string? Password { get; set; }
     }
 }

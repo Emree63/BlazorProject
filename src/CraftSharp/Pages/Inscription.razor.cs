@@ -21,16 +21,10 @@ namespace CraftSharp.Pages
 
         private async Task OnSubmit()
         {
-            error = null;
-            try
-            {
+
                 await AuthStateProvider.Register(registerRequest);
                 NavigationManager.NavigateTo("");
-            }
-            catch (Exception ex)
-            {
-                error = ex.Message;
-            }
+
         }
     }
 }
