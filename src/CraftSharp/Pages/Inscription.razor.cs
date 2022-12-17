@@ -4,15 +4,27 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Components;
 using CraftSharp.Models;
+using CraftSharp.Services;
 
 namespace CraftSharp.Pages
 {
     public partial class Inscription
     {
-        private readonly InscriptionModel inscription = new();
+        [Inject]
+        public CustomStateProvider AuthStateProvider { get; set; }
 
-        private void inscrire()
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
+
+        private string error { get; set; }
+        private InscriptionModel registerRequest { get; set; } = new InscriptionModel();
+
+        private async Task OnSubmit()
         {
+
+                await AuthStateProvider.Register(registerRequest);
+                NavigationManager.NavigateTo("");
+
         }
     }
 }

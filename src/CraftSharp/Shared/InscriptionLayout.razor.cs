@@ -6,9 +6,6 @@ namespace CraftSharp.Shared
 {
     public partial class InscriptionLayout
     {
-        void getBack()
-        {
-            navigationManager.NavigateTo("");
-        }
+
     }
 }

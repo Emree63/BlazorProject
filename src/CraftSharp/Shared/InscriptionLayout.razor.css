@@ -29,10 +29,10 @@ footer {
     justify-content: space-between;
 }
 
-    footer p {
-        color: white;
-        font-family: Minecraft;
-    }
+footer p {
+    color: white;
+    font-family: Minecraft;
+}
 
 .p2 {
     float: right;
@@ -48,5 +48,10 @@ button {
     font-family: SilkscreenNormal;
     line-height: 26px;
     padding-top: 6px;
+    font-family: Minecraft;
+}
+
+h1 {
+    color: white;
     font-family: Minecraft;
 }

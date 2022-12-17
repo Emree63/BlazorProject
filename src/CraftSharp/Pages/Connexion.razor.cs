@@ -4,21 +4,32 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Components;
 using CraftSharp.Models;
+using CraftSharp.Services;
 
 namespace CraftSharp.Pages
 {
     public partial class Connexion
     {
-        private readonly ConnexionModel connexion = new();
+        [Inject]
+        public CustomStateProvider AuthStateProvider { get; set; }
 
-        private string _connexionId = "test";
-        private string _connexionPasswrd = "test";
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
 
-        private void seConnecter()
+        private string error { get; set; }
+        private ConnexionModel loginRequest { get; set; } = new ConnexionModel();
+
+        private async Task OnSubmit()
         {
-            if (connexion.Name == _connexionId && connexion.Password == _connexionPasswrd)
+            error = null;
+            try
             {
-                NavManager.NavigateTo("/counter");
+                await AuthStateProvider.Login(loginRequest);
+                NavigationManager.NavigateTo("");
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
             }
         }
     }

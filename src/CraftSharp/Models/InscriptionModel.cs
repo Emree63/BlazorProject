@@ -6,20 +6,16 @@ namespace CraftSharp.Models
     {
 
         [Required(ErrorMessage = "Le pseudo est obligatoire.")]
-        [StringLength(50, ErrorMessage = "Le pseudo est trop long")]
-        public string? Pseudo { get; set; }
-
-        [Required(ErrorMessage = "L'email est obligatoire.")]
-        [StringLength(50, ErrorMessage = "Le nom ne doit pas dépasser 50 caractères.")]
-        [RegularExpression(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$", ErrorMessage = "Le format de l'email n'est pas correcte.")]
-        public string? Email { get; set; }
+        [MinLength(4, ErrorMessage = "Le pseudo est trop court")]
+        [MaxLength(50, ErrorMessage = "Le pseudo est trop long")]
+        public string? UserName { get; set; }
 
         [Required(ErrorMessage = "Le mot de passe est obligatoire.")]
-        [StringLength(50, ErrorMessage = "Le mot de passe est trop long")]
+        [MinLength(4, ErrorMessage = "Le mot de passe est trop court")]
         public string? Password { get; set; }
 
         [Required(ErrorMessage = "Vous devez confirmer votre mot de passe")]
-        [StringLength(50, ErrorMessage = "Le pseudo est trop long")]
-        public string? ConfirmPasswd { get; set; }
+        [Compare(nameof(Password), ErrorMessage = "Les mot de passe ne correspondent pas!")]
+        public string? PasswordConfirm { get; set; }
     }
 }
