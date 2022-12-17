@@ -1,55 +1,51 @@
-﻿@inject NavigationManager navigationManager
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
+﻿<div class="topbar">
+    <nav class="navbar navbar-expand-md mb-4">
+        <div class="container-fluid bar">
+            <button class="navbar-toggler @NavButtonCssClass" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu">
+                <ul class="navbar-nav me-auto mb-0 mb-md-0 topbar_content" >
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="List">
+                            <span class="topbar_item">
+                                <img src="/Images/inventory_icon.png" class="topbar_itemimg"/> @Localizer["Inventory"]
+                            </span>
+                        </NavLink>
+                    </li>
 
-        <img class="nav-image" src="Images/CraftSharp-Logo.png" alt="Logo Application"/>
-        <button class="navbar-toggler @NavButtonCssClass" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-label="Toggle navigation" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse @NavBarCssClass" id="navbarCollapse" @onclick="ToggleNavMenu">
-            <ul class="navbar-nav me-auto mb-0 mb-md-0">
-                <li class="nav-item">
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                        <span class="oi oi-home"></span> Home
-                    </NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="List">
-                        <span class="oi oi-box"></span> List
-                    </NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="counter">
-                        <span class="oi oi-plus"></span> @Localizer["Shop"]
-                    </NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="fetchdata">
-                        <span class="oi oi-list-rich"></span> Inventaire
-                    </NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="Tabledecraft">
-                        <span class="oi oi-vertical-align-top"></span> Crafter
-                    </NavLink>
-                </li>
-            </ul>
-            <div>
-                <div >
-                    <CultureSelector/>
-                </div>
-                <button @onclick=@goConnexion> Se connecter
-            </button>
-                <button @onclick=@goInscription> S'inscrire
-            </button>
-            <button type="button" class="btn btn-link ml-md-auto" @onclick="@LogoutClick">Se deconnecter</button>
+                     
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="counter">
+                            <span class="topbar_item">
+                                <img src="/Images/shop_icon.png" class="topbar_itemimg"/> @Localizer["Shop"]
+                            </span>
+                        </NavLink>
+                    </li>
+                    <span class="img_wrap">
+                        <img class="nav-image" src="Images/CraftSharp-Logo.png" alt="Logo Application"/>
+                        <img class="nav-image" src="/Images/@(Localizer["subtext-img"]).png" width="70%" />
+                     </span>
+
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="fetchdata">
+                            <span class="topbar_item">
+                                <img src="/Images/opening_icon.png" class="topbar_itemimg"/> @Localizer["Opening"]
+                            </span>
+                        </NavLink>
+                    </li>
+                     <span class="btn_wrap">
+                        <div class="button"> @Localizer["Login"]</div>
+                        <div class="button"> @Localizer["Register"]</div>
+                     </span>
+                </ul>
+            </div>
         </div>
-        </div>
-    </div>
-</nav>
+    </nav>
+</div>
+
+
 
 @code {
     private bool collapseNavMenu = true;

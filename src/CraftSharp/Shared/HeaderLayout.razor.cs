@@ -9,7 +9,7 @@ namespace CraftSharp.Shared
     public partial class HeaderLayout
     {
         [Inject]
-        public IStringLocalizer<Index> Localizer { get; set; }
+        public IStringLocalizer<HeaderLayout> Localizer { get; set; }
 
         [Inject]
         public CustomStateProvider AuthStateProvider { get; set; }
@@ -22,12 +22,12 @@ namespace CraftSharp.Shared
 
         void goInscription()
         {
-            navigationManager.NavigateTo("inscription");
+            NavigationManager.NavigateTo("inscription");
         }
 
         void goConnexion()
         {
-            navigationManager.NavigateTo("connexion");
+            NavigationManager.NavigateTo("connexion");
         }
 
         protected override async Task OnParametersSetAsync()
