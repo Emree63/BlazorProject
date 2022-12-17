@@ -7,7 +7,7 @@
         <div>
           <EditForm class="form-signin" OnValidSubmit="@OnSubmit" Model="@registerRequest">
                 <DataAnnotationsValidator />
-                <ValidationSummary />
+               
 
                 <label for="inputUsername" class="sr-only">Pseudonyme</label>
                 <InputText id="inputUsername" class="form-control" placeholder="Entrez votre pseudonyme" autofocus @bind-Value="@registerRequest.UserName" />
