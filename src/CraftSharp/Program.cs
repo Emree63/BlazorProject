@@ -33,6 +33,7 @@ builder.Services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
 builder.Services.AddHttpClient();
 
 builder.Services.AddBlazoredModal();
+builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
 
 builder.Services
    .AddBlazorise()
