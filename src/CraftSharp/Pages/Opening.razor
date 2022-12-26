@@ -1,3 +1,23 @@
-﻿<h3>Opening</h3>
+﻿@page "/opening"
+
+
+<h3>Opening</h3>
+
+<div class="openingPanel">
+    <img src="/Images/chestBottom.png" class="chest chestOpenBottom @openAnim" />
+    <img src="/Images/chest.png" class="chest chestOpen @openAnim" />
+    <img src="/Images/inventory_icon.png" class="chest chestClose @closeAnim" />
+
+    @if (randomItem is not null)
+    {
+        <div class="item @itemAnim" style="opacity: @itemOpacity">
+            <img src="data:image/png;base64, @(randomItem.ImageBase64)" title="@randomItem.DisplayName" alt="@randomItem.DisplayName" style="min-width: 128px; max-width: 128px" />
+            <p class="itemName">@randomItem.DisplayName</p>
+        </div>
+    }
+
+    <button class="button openBtn" @onclick="selectRandom">OUVRIR</button>
+</div>
+
 
 

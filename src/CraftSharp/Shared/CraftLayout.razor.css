@@ -1,7 +1,8 @@
 ﻿.bedrock_footer{
     width: 100%;
     position: absolute;
-    bottom: 0
+    bottom: 0;
+    pointer-events:none;
 }
 
 .bedrock_footer_img {

@@ -5,7 +5,7 @@ namespace CraftSharp.Factories
     public static class ItemFactory
     {
 
-        public static Item GetRandomItem(Item[] items)
+        public static Item GetRandomItem(List<Item> items)
         {
             Random rnd = new Random();
             int idx = rnd.Next(items.Count());
