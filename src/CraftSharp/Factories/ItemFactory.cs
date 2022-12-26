@@ -4,6 +4,14 @@ namespace CraftSharp.Factories
 {
     public static class ItemFactory
     {
+
+        public static Item GetRandomItem(Item[] items)
+        {
+            Random rnd = new Random();
+            int idx = rnd.Next(items.Count());
+            return items[idx];
+        }
+
         public static ItemModel ToModel(Item item, byte[] imageContent)
         {
             return new ItemModel
