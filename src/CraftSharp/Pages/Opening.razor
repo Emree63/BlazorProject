@@ -1,8 +1,5 @@
 ﻿@page "/opening"
 
-
-<h3>Opening</h3>
-
 <div class="openingPanel">
     <img src="/Images/chestBottom.png" class="chest chestOpenBottom @openAnim" />
     <img src="/Images/chest.png" class="chest chestOpen @openAnim" />
@@ -16,7 +13,12 @@
         </div>
     }
 
-    <button class="button openBtn" @onclick="selectRandom">OUVRIR</button>
+    <div class="button openBtn" @onclick="selectRandom">
+        @Localizer["Open"] 
+        <div class="costDiv">
+            <img src="/Images/opening_icon.png" style="width: 30px" /> x1
+        </div>
+    </div>
 </div>
 
 

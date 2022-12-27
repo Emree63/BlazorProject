@@ -1,7 +1,9 @@
 ﻿using CraftSharp.Factories;
 using CraftSharp.Models;
 using CraftSharp.Services;
+using CraftSharp.Shared;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 
 namespace CraftSharp.Pages
 {
@@ -19,6 +21,9 @@ namespace CraftSharp.Pages
 
         [Inject]
         public IDataService DataService { get; set; }
+
+        [Inject]
+        public IStringLocalizer<Opening> Localizer { get; set; }
 
         int totalItem;
         List<Item> items;

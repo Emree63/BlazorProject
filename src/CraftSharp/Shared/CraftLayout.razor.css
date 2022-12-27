@@ -1,23 +1,21 @@
-﻿.bedrock_footer{
+﻿.bedrock_footer {
     width: 100%;
-    position: absolute;
-    bottom: 0;
-    pointer-events:none;
+    position: relative;
 }
 
 .bedrock_footer_img {
     width: 100%;
+    pointer-events: none;
 }
 
-body {
-    background: url("../Images/blur_background.jpg") center center/cover no-repeat fixed;
+.spacer{
+    height: 300px;
 }
-
 .main_div {
     background: url("../Images/blur_background.jpg") center center/cover no-repeat fixed;
     color: white;
     min-height: 100vh;
-    position: relative
+    position: relative;
 }
 
 .culture{
