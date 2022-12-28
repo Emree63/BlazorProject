@@ -78,7 +78,7 @@ nav-link {
     align-items: center;
 }
 
-.button {
+button {
     width: 11rem;
     text-decoration: none;
     text-align: center;
@@ -92,7 +92,7 @@ nav-link {
     font-family: Minecraft;
 }
 
-.button:hover {
+button:hover {
     background: url('Images/btn2.png')center center/contain no-repeat;
     background-size: 100% 100%;
 }
