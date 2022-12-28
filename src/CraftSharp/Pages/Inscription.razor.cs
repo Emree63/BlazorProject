@@ -23,7 +23,7 @@ namespace CraftSharp.Pages
         {
 
                 await AuthStateProvider.Register(registerRequest);
-                NavigationManager.NavigateTo("");
+                NavigationManager.NavigateTo("index");
 
         }
     }
