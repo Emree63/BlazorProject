@@ -15,7 +15,7 @@ namespace CraftSharp.Services
             new AppUser { UserName = "Admin", Password = "123456", Roles = new List<UserRoles> { UserRoles.Admin }, numberOfKeys=999 }
         };
         }
-        public AppUser GetCurrentUser(string userName)
+/*        public AppUser GetCurrentUser(string userName)
         {
             var user = CurrentUser.FirstOrDefault(w => w.UserName == userName);
 
@@ -25,7 +25,7 @@ namespace CraftSharp.Services
             }
 
             return user;
-        }
+        }*/
 
 
         public CurrentUser GetUser(string userName)
@@ -46,6 +46,7 @@ namespace CraftSharp.Services
                 UserName = user.UserName,
                 NumberOfKeys = user.numberOfKeys,
                 Inventory = user.inventory,
+                Roles = user.Roles,
                 Claims = claims.ToDictionary(c => c.Type, c => c.Value)
             };
         }

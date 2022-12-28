@@ -13,9 +13,6 @@ namespace CraftSharp.Shared
         public IStringLocalizer<HeaderLayout> Localizer { get; set; }
 
         [Inject]
-        public IAuthService AuthService { get; set; }
-
-        [Inject]
         public CustomStateProvider AuthStateProvider { get; set; }
 
         [Inject]
@@ -44,18 +41,9 @@ namespace CraftSharp.Shared
         async public void isAdmin()
         {
             var authState = await AuthenticationState;
-            var roles = AuthService.GetCurrentUser(authState.User.Identity.Name).Roles;
+            var roles = AuthStateProvider.GetCurrentUser().Roles;
             isUserAdmin = roles.Contains(UserRoles.Admin);
         }
-
-       /* protected override async Task OnParametersSetAsync()
-        {
-            if (!(await AuthenticationState).User.Identity.IsAuthenticated)
-            {
-                NavigationManager.NavigateTo("/inscription");
-            }
-        }*/
-
         private async Task LogoutClick()
         {
             await AuthStateProvider.Logout();

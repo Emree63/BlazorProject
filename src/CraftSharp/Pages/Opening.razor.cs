@@ -25,7 +25,7 @@ namespace CraftSharp.Pages
         public IDataService DataService { get; set; }
 
         [Inject]
-        public IAuthService AuthService { get; set; }
+        public CustomStateProvider AuthService { get; set; }
 
         [CascadingParameter]
         public Task<AuthenticationState> Context { get; set; }
@@ -46,7 +46,7 @@ namespace CraftSharp.Pages
             items = await DataService.List(0, totalItem);
 
             var authState = await Context;
-            NumberOfKeys = AuthService.GetCurrentUser(authState.User.Identity.Name).numberOfKeys;
+            NumberOfKeys = AuthService.GetCurrentUser().NumberOfKeys;
         }
 
         bool canOpen()

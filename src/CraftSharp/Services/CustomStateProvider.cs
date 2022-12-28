@@ -62,7 +62,7 @@ namespace CraftSharp.Services
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
-        private CurrentUser GetCurrentUser()
+        public CurrentUser GetCurrentUser()
         {
             if (_currentUser != null && _currentUser.IsAuthenticated)
             {
