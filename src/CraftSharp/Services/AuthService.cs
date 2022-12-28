@@ -12,7 +12,7 @@ namespace CraftSharp.Services
         {
             CurrentUser = new List<AppUser>
         {
-            new AppUser { UserName = "Admin", Password = "123456", Roles = new List<UserRoles> { UserRoles.Admin }, numberOfKeys=5 }
+            new AppUser { UserName = "Admin", Password = "123456", Roles = new List<UserRoles> { UserRoles.Admin }, numberOfKeys=999 }
         };
         }
         public AppUser GetCurrentUser(string userName)

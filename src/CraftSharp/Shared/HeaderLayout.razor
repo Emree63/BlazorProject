@@ -15,9 +15,8 @@
                         </NavLink>
                     </li>
 
-                     
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="list">
+                        <NavLink class="nav-link" href="shop">
                             <span class="topbar_item">
                                 <img src="/Images/shop_icon.png" class="topbar_itemimg"/> @Localizer["Shop"]
                             </span>
@@ -35,9 +34,26 @@
                             </span>
                         </NavLink>
                     </li>
-                    <button type="button" class="btn btn-link ml-md-auto" @onclick="@LogoutClick">Logout</button>
+                    @if (isUserAdmin)
+                    {
+                        <li class="nav-item">
+                            <NavLink class="nav-link" href="list">
+                                <span class="topbar_item">
+                                    <img src="/Images/admin_icon.png" class="topbar_itemimg" /> Admin
+                                </span>
+                            </NavLink>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <span class="topbar_item" style="visibility: hidden">
+                            </span>
+                        </li>
+                    }
                 </ul>
             </div>
+            <button type="button" class="btn btn-link ml-md-auto" @onclick="@LogoutClick">Logout</button>
         </div>
     </nav>
 </div>

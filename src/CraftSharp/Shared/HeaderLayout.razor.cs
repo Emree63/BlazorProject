@@ -1,4 +1,5 @@
-﻿using CraftSharp.Services;
+﻿using CraftSharp.Models;
+using CraftSharp.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
@@ -12,6 +13,9 @@ namespace CraftSharp.Shared
         public IStringLocalizer<HeaderLayout> Localizer { get; set; }
 
         [Inject]
+        public IAuthService AuthService { get; set; }
+
+        [Inject]
         public CustomStateProvider AuthStateProvider { get; set; }
 
         [Inject]
@@ -19,6 +23,13 @@ namespace CraftSharp.Shared
 
         [CascadingParameter]
         private Task<AuthenticationState> AuthenticationState { get; set; }
+
+        private bool isUserAdmin = false;
+
+        protected override async Task OnInitializedAsync()
+        {
+            isAdmin();
+        }
 
         void goInscription()
         {
@@ -28,6 +39,13 @@ namespace CraftSharp.Shared
         void goConnexion()
         {
             NavigationManager.NavigateTo("connexion");
+        }
+
+        async public void isAdmin()
+        {
+            var authState = await AuthenticationState;
+            var roles = AuthService.GetCurrentUser(authState.User.Identity.Name).Roles;
+            isUserAdmin = roles.Contains(UserRoles.Admin);
         }
 
        /* protected override async Task OnParametersSetAsync()
