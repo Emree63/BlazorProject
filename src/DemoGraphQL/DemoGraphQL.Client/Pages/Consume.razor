@@ -1,0 +1,26 @@
+﻿@page "/consume"
+
+<h3>Consume</h3>
+
+@if (Owner != null)
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Owner)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Address</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
