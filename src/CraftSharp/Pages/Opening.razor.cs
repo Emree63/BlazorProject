@@ -3,6 +3,7 @@ using CraftSharp.Models;
 using CraftSharp.Services;
 using CraftSharp.Shared;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
 
 namespace CraftSharp.Pages
@@ -14,13 +15,23 @@ namespace CraftSharp.Pages
         string closeAnim = "";
         string openAnim = "";
         string itemAnim = "";
+        string buttonAnim = "";
 
-        bool canOpen = true;
+        bool isChestClosed = true;
 
         int itemOpacity = 0;
 
         [Inject]
         public IDataService DataService { get; set; }
+
+        [Inject]
+        public IAuthService AuthService { get; set; }
+
+        [CascadingParameter]
+        public Task<AuthenticationState> Context { get; set; }
+
+        int NumberOfKeys { get; set; } = 0;
+        int CostInKeys { get; set; } = 1;
 
         [Inject]
         public IStringLocalizer<Opening> Localizer { get; set; }
@@ -33,24 +44,48 @@ namespace CraftSharp.Pages
             totalItem = await DataService.Count();
 
             items = await DataService.List(0, totalItem);
+
+            var authState = await Context;
+            NumberOfKeys = AuthService.GetCurrentUser(authState.User.Identity.Name).numberOfKeys;
+        }
+
+        bool canOpen()
+        {
+            return isChestClosed && NumberOfKeys >= CostInKeys;
         }
 
         async void selectRandom()
         {
 
-            if (canOpen)
+            if (canOpen())
             {
+                NumberOfKeys=NumberOfKeys-CostInKeys;
                 randomItem = ItemFactory.GetRandomItem(items);
                 Console.WriteLine(randomItem.Name);
                 openingAnimation();
             }
+            else
+            {
+                cantOpenAnimation();
+            }
+
+        }
+
+        async void cantOpenAnimation()
+        {
+            buttonAnim = "buttonShake";
+            StateHasChanged();
+
+            await Task.Delay(500);
+            buttonAnim = "";
+            StateHasChanged();
 
         }
 
         async void openingAnimation()
         {
             itemOpacity = 0;
-            canOpen = false;
+            isChestClosed = false;
             openAnim = "chestAppear";
             closeAnim = "chestDisppear";
             StateHasChanged();
@@ -64,7 +99,7 @@ namespace CraftSharp.Pages
             closeAnim = "chestAppear";
             itemAnim = "itemIdle";
             itemOpacity = 1;
-            canOpen = true;
+            isChestClosed = true;
             StateHasChanged();
 
 

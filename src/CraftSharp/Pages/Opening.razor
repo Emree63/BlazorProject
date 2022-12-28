@@ -1,4 +1,16 @@
-﻿@page "/opening"
+﻿@using CraftSharp.Components
+
+@page "/opening"
+
+<AuthorizeView>
+    <Authorized>
+        <div class="numberOfKeys">
+            <ValueIndicator IconPath="/Images/opening_icon.png" 
+                            Value="@NumberOfKeys">
+            </ValueIndicator>
+        </div>
+    </Authorized>
+</AuthorizeView>
 
 <div class="openingPanel">
     <img src="/Images/chestBottom.png" class="chest chestOpenBottom @openAnim" />
@@ -13,10 +25,10 @@
         </div>
     }
 
-    <div class="button openBtn" @onclick="selectRandom">
+    <div class="button openBtn @buttonAnim" @onclick="selectRandom">
         @Localizer["Open"] 
         <div class="costDiv">
-            <img src="/Images/opening_icon.png" style="width: 30px" /> x1
+            <img src="/Images/opening_icon.png" style="width: 30px" /> x @CostInKeys
         </div>
     </div>
 </div>

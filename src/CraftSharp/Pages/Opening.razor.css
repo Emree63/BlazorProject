@@ -43,6 +43,32 @@
     }
 }
 
+@keyframes buttonShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    10%, 30%, 50%, 70% {
+        transform: translateX(-5px);
+    }
+
+    20%, 40%, 60% {
+        transform: translateX(5px);
+    }
+
+    80% {
+        transform: translateX(3px);
+    }
+
+    90% {
+        transform: translateX(-3px);
+    }
+}
+
+.buttonShake {
+    animation: buttonShake 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
 .chestAppear {
     animation: Appear .2s ease 0s 1 normal forwards;
 }
@@ -123,8 +149,6 @@
     position: absolute;
 }
 
-
-
 .itemName {
     position: absolute;
     top: 0;
@@ -139,4 +163,9 @@
     position:absolute;
     right: 5px;
     top: 5px;
+}
+
+.numberOfKeys{
+    float: right;
+    margin: 5px;
 }
