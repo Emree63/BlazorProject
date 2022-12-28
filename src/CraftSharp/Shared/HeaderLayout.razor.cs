@@ -30,13 +30,13 @@ namespace CraftSharp.Shared
             NavigationManager.NavigateTo("connexion");
         }
 
-        protected override async Task OnParametersSetAsync()
+       /* protected override async Task OnParametersSetAsync()
         {
             if (!(await AuthenticationState).User.Identity.IsAuthenticated)
             {
                 NavigationManager.NavigateTo("/inscription");
             }
-        }
+        }*/
 
         private async Task LogoutClick()
         {

@@ -25,7 +25,7 @@ namespace CraftSharp.Pages
             try
             {
                 await AuthStateProvider.Login(loginRequest);
-                NavigationManager.NavigateTo("");
+                NavigationManager.NavigateTo("index");
             }
             catch (Exception ex)
             {
