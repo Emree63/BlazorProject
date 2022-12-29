@@ -1,4 +1,5 @@
-﻿<CascadingBlazoredModal>
+﻿@using CraftSharp.Models;
+<CascadingBlazoredModal>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(CraftLayout)" />
@@ -6,10 +7,12 @@
         </Found>
         <NotFound>
            <CascadingAuthenticationState>
-            <LayoutView Layout="@typeof(CraftLayout)">
-                <p>Sorry, there's nothing at this address.</p>
-            </LayoutView>
+                    <LayoutView Layout="@typeof(CraftLayout)">
+                        <p>Sorry, there's nothing at this address.</p>
+                    </LayoutView>
         </CascadingAuthenticationState>
         </NotFound>
     </Router>
 </CascadingBlazoredModal>
+
+

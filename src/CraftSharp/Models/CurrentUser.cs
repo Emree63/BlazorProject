@@ -7,7 +7,7 @@
         public string UserName { get; set; }
         public int NumberOfKeys { get; set; } = 0;
         public List<Item> Inventory { get; set; } = new List<Item>();
-
+        public List<UserRoles> Roles { get; set; } = new List<UserRoles>() { UserRoles.User };
 
     }
 }
