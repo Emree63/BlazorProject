@@ -40,7 +40,6 @@ namespace CraftSharp.Shared
 
         async public void isAdmin()
         {
-            var authState = await AuthenticationState;
             var roles = AuthStateProvider.GetCurrentUser().Roles;
             isUserAdmin = roles.Contains(UserRoles.Admin);
         }

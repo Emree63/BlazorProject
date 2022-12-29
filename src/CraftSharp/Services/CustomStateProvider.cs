@@ -1,13 +1,21 @@
 ﻿using CraftSharp.Models;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Components;
+using Blazorise;
+using Microsoft.JSInterop;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace CraftSharp.Services
 {
     public class CustomStateProvider : AuthenticationStateProvider
     {
         private readonly IAuthService _authService;
-        private CurrentUser _currentUser;
+
+        [CascadingParameter]
+        public CurrentUser UserObject { get; set; }
 
         public CustomStateProvider(IAuthService authService)
         {
@@ -22,7 +30,7 @@ namespace CraftSharp.Services
                 var userInfo = GetCurrentUser();
                 if (userInfo.IsAuthenticated)
                 {
-                    var claims = new[] { new Claim(ClaimTypes.Name, _currentUser.UserName) }.Concat(_currentUser.Claims.Select(c => new Claim(c.Key, c.Value)));
+                    var claims = new[] { new Claim(ClaimTypes.Name, UserObject.UserName) }.Concat(UserObject.Claims.Select(c => new Claim(c.Key, c.Value)));
                     identity = new ClaimsIdentity(claims, "Server authentication");
                 }
             }
@@ -37,17 +45,18 @@ namespace CraftSharp.Services
         public async Task Login(ConnexionModel loginParameters)
         {
             _authService.Login(loginParameters);
-
             // No error - Login the user
-            var user = _authService.GetUser(loginParameters.UserName);
-            _currentUser = user;
-
+            CurrentUser user;
+            user = _authService.GetUser(loginParameters.UserName);
+            UserObject = user;
+            Console.WriteLine("\t\tLOGIN: " + UserObject.UserName);
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
         public async Task Logout()
         {
-            _currentUser = null;
+
+            UserObject = new CurrentUser();
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
@@ -57,18 +66,19 @@ namespace CraftSharp.Services
 
             // No error - Login the user
             var user = _authService.GetUser(registerParameters.UserName);
-            _currentUser = user;
-
+            UserObject = user;
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
         public CurrentUser GetCurrentUser()
         {
-            if (_currentUser != null && _currentUser.IsAuthenticated)
-            {
-                return _currentUser;
-            }
+            CurrentUser cacheUser;
 
+            if (UserObject != null && UserObject.IsAuthenticated)
+            {
+                Console.WriteLine("Return user");
+                return UserObject;
+            }
             return new CurrentUser();
         }
     }

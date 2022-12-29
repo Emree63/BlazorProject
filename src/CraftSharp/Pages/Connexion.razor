@@ -10,7 +10,7 @@
                 <DataAnnotationsValidator />
 
                 <label for="inputUsername" class="sr-only">Pseudonyme</label>
-                <InputText id="inputUsername" class="form-control" @bind-Value="loginRequest.UserName" autofocus placeholder="Entrez votre pseudonyme" />
+            <InputText id="inputUsername" class="form-control" @bind-Value="loginRequest.UserName" autofocus placeholder="Entrez votre pseudonyme" />
                 <ValidationMessage For="@(() => loginRequest.UserName)" />
 
                  <br />
