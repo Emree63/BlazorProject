@@ -20,13 +20,12 @@ namespace CraftSharp.Pages
         bool isChestClosed = true;
 
         int itemOpacity = 0;
-
         [Inject]
         public IDataService DataService { get; set; }
-
         [Inject]
         public CustomStateProvider AuthService { get; set; }
-
+        [Inject]
+        public CustomStateProvider AuthStateProvider { get; set; }
         [CascadingParameter]
         public Task<AuthenticationState> Context { get; set; }
 
@@ -61,6 +60,14 @@ namespace CraftSharp.Pages
             {
                 NumberOfKeys=NumberOfKeys-CostInKeys;
                 randomItem = ItemFactory.GetRandomItem(items);
+                if (AuthStateProvider.GetCurrentUser().getSizeInventory() <= 64)
+                {
+                    //Vérifie quel n'existe pas déjà dans la liste
+                    if (!AuthStateProvider.GetCurrentUser().Inventory.Any(n => n.Id == randomItem.Id))
+                    {
+                        AuthStateProvider.GetCurrentUser().addItem(randomItem);
+                    }
+                }
                 Console.WriteLine(randomItem.Name);
                 openingAnimation();
             }
