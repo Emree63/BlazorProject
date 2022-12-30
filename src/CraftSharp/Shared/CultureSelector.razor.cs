@@ -30,6 +30,7 @@ namespace CraftSharp.Shared
 
                 // Redirect the user to the culture controller to set the cookie
                 this.NavigationManager.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
+
             }
         }
     }

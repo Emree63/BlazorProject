@@ -44,7 +44,6 @@ namespace CraftSharp.Pages
 
             items = await DataService.List(0, totalItem);
 
-            var authState = await Context;
             NumberOfKeys = AuthService.GetCurrentUser().NumberOfKeys;
         }
 
