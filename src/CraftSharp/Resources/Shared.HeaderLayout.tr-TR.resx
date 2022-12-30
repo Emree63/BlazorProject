@@ -123,6 +123,9 @@
   <data name="Login" xml:space="preserve">
     <value>Giriş yapmak</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Çıkış Yap</value>
+  </data>
   <data name="Opening" xml:space="preserve">
     <value>Açılış</value>
   </data>

@@ -137,6 +137,7 @@
     z-index: 10;
     width: 400px;
     padding-bottom: 7px;
+    user-select: none;
 }
 
 .item {

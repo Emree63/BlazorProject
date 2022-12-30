@@ -12,6 +12,7 @@
     font-family: Minecraft;
     position: relative;
     padding-bottom: 17px;
+    user-select:none;
 }
 
 .offer:hover {
