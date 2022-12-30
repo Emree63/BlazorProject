@@ -14,8 +14,7 @@ namespace CraftSharp.Services
     {
         private readonly IAuthService _authService;
 
-        [CascadingParameter]
-        public CurrentUser UserObject { get; set; }
+        private CurrentUser _currentUser { get; set; }
 
         public CustomStateProvider(IAuthService authService)
         {
@@ -30,7 +29,7 @@ namespace CraftSharp.Services
                 var userInfo = GetCurrentUser();
                 if (userInfo.IsAuthenticated)
                 {
-                    var claims = new[] { new Claim(ClaimTypes.Name, UserObject.UserName) }.Concat(UserObject.Claims.Select(c => new Claim(c.Key, c.Value)));
+                    var claims = new[] { new Claim(ClaimTypes.Name, _currentUser.UserName) }.Concat(_currentUser.Claims.Select(c => new Claim(c.Key, c.Value)));
                     identity = new ClaimsIdentity(claims, "Server authentication");
                 }
             }
@@ -48,15 +47,14 @@ namespace CraftSharp.Services
             // No error - Login the user
             CurrentUser user;
             user = _authService.GetUser(loginParameters.UserName);
-            UserObject = user;
-            Console.WriteLine("\t\tLOGIN: " + UserObject.UserName);
+            _currentUser = user;
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
         public async Task Logout()
         {
 
-            UserObject = new CurrentUser();
+            _currentUser = new CurrentUser();
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
@@ -66,7 +64,7 @@ namespace CraftSharp.Services
 
             // No error - Login the user
             var user = _authService.GetUser(registerParameters.UserName);
-            UserObject = user;
+            _currentUser = user;
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
@@ -74,10 +72,9 @@ namespace CraftSharp.Services
         {
             CurrentUser cacheUser;
 
-            if (UserObject != null && UserObject.IsAuthenticated)
+            if (_currentUser != null && _currentUser.IsAuthenticated)
             {
-                Console.WriteLine("Return user");
-                return UserObject;
+                return _currentUser;
             }
             return new CurrentUser();
         }
