@@ -28,6 +28,18 @@ namespace CraftSharp.Components
             Parent.Actions.Add(new CraftingAction { Action = "Drag Enter", Item = this.Item, Index = this.Index });
         }
 
+        internal void OnDragEnd()
+        {
+            if (NoDrop)
+            {
+                return;
+            }
+
+            Parent.RecipeItems[this.Index] = null;
+            Item = null;
+            Parent.CheckRecipe();
+        }
+
         internal void OnDragLeave()
         {
             if (NoDrop)

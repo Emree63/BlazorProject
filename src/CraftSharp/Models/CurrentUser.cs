@@ -9,5 +9,15 @@
         public List<Item> Inventory { get; set; } = new List<Item>();
         public List<UserRoles> Roles { get; set; } = new List<UserRoles>() { UserRoles.User };
 
+        public void addItem(Item item)
+        {
+            Inventory.Add(item);
+        }
+
+        public int getSizeInventory()
+        {
+            return Inventory.Count;
+        }
+
     }
 }

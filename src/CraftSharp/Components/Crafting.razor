@@ -2,7 +2,7 @@
     <div class="container">
         <div class="body">
             <div class="row">
-                <div>Recipe</div>
+                <div>Table de craft</div>
                 
                 <div>
                     
@@ -33,6 +33,10 @@
                         @foreach (var item in Items)
                         {
                             <CraftingItem Item="item" NoDrop="true"/>
+                        }
+                        @for (int i = 0; i < 64 - Items.Count; i++)
+                        {
+                            <CraftingItem/>
                         }
                     </div>
                 </div>

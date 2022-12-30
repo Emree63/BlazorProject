@@ -9,9 +9,9 @@ namespace CraftSharp.Pages
     {
         [Inject]
         public IDataService DataService { get; set; }
-
         public List<Item> Items { get; set; } = new List<Item>();
-
+        [Inject]
+        public CustomStateProvider AuthStateProvider { get; set; }
         private List<CraftingRecipe> Recipes { get; set; } = new List<CraftingRecipe>();
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -23,7 +23,8 @@ namespace CraftSharp.Pages
                 return;
             }
 
-            Items = await DataService.List(0, await DataService.Count());
+            //Items = await DataService.List(0, await DataService.Count());
+            Items = AuthStateProvider.GetCurrentUser().Inventory;
             Recipes = await DataService.GetRecipes();
 
             StateHasChanged();

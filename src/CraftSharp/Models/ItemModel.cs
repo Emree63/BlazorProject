@@ -20,7 +20,7 @@ namespace CraftSharp.Models
         public int StackSize { get; set; }
 
         [Required]
-        [Range(1, 125)]
+        [Range(0, 125)]
         public int MaxDurability { get; set; }
 
         public List<string> EnchantCategories { get; set; }
