@@ -11,23 +11,10 @@ namespace CraftSharp.Services
         static AuthService()
         {
             CurrentUser = new List<AppUser>
-        {
-            new AppUser { UserName = "Admin", Password = "123456", Roles = new List<UserRoles> { UserRoles.Admin }, numberOfKeys=999 }
-        };
-        }
-/*        public AppUser GetCurrentUser(string userName)
-        {
-            var user = CurrentUser.FirstOrDefault(w => w.UserName == userName);
-
-            if (user == null)
             {
-                throw new Exception("User name or password invalid !");
-            }
-
-            return user;
-        }*/
-
-
+                new AppUser { UserName = "Admin", Password = "123456", Roles = new List<UserRoles> { UserRoles.Admin }, numberOfKeys=999 }
+            };
+        }
         public CurrentUser GetUser(string userName)
         {
             var user = CurrentUser.FirstOrDefault(w => w.UserName == userName);
@@ -45,6 +32,7 @@ namespace CraftSharp.Services
                 IsAuthenticated = true,
                 UserName = user.UserName,
                 NumberOfKeys = user.numberOfKeys,
+                numberOfEmeralds = user.numberOfEmeralds,
                 Inventory = user.inventory,
                 Roles = user.Roles,
                 Claims = claims.ToDictionary(c => c.Type, c => c.Value)

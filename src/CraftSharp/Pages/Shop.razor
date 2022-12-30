@@ -1,0 +1,32 @@
+﻿@using CraftSharp.Components
+
+@page "/shop"
+
+<AuthorizeView>
+    <Authorized>
+        <div class="NumberOfEmeralds">
+            <ValueIndicator IconPath="/Images/shop_icon.png" 
+                            Value="@NumberOfEmeralds">
+            </ValueIndicator>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+<div class="shopPanel">
+
+    <img src="/Images/villager.png" id="villager"/>
+
+    <div class="offers">
+        @foreach(var offer in offers){
+            <div @onclick="@(() => buyKeys(offer))"
+                 class="@animation[offer]">
+                <ShopOffer inputIcon=@offer.InputIconPath
+                       outputIcon=@offer.OutputIconPath
+                       inputAmount=@offer.InputAmount
+                       outputAmount=@offer.OutputAmount
+                       centerText=@Localizer["Buy"]>
+                </ShopOffer>
+            </div>
+        }
+    </div>
+</div>

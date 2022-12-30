@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public int numberOfKeys { get; set; } = 10;
+        public int numberOfEmeralds { get; set; } = 250;
 
         public string Password { get; set; }
         public List<UserRoles> Roles { get; set; } = new List<UserRoles>() { UserRoles.User };
