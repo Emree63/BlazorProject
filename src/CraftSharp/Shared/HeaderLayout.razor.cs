@@ -29,6 +29,10 @@ namespace CraftSharp.Shared
 
         protected override async Task OnInitializedAsync()
         {
+            if (AuthStateProvider.GetCurrentUser() == null || !AuthStateProvider.GetCurrentUser().IsAuthenticated)
+            {
+                NavigationManager.NavigateTo("/");
+            }
             isAdmin();
         }
 
