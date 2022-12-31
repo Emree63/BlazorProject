@@ -207,6 +207,47 @@ Commençons par la page **Connexion** et **Inscription**, comme tout bonne appli
 </div>
 :information_source: Va être alors rédirigé sur une page d'erreur qui au bout de 5secondes le ramènera à la page d'accueil.
 
+- ### Comment sa marche au niveau du code ? 
+
+<div align = center>
+
+![Erreur Url inexistant](doc/Images/CodeApplication.png)
+
+</div>
+
+Nous avons tout d'abord, dans la solution deux grands projets, un qui l'api qui va contenir tout les objets(**Minecraft.Crafting.Api**) et l'autre qui regroupe tout le code de notre application qui va utiliser l'API (**CraftSharp**) !
+
+Notre application est composé de plusieurs dossiers et fichier importants :
+
+- **Program.cs** :  Il contient le code qui est exécuté lorsque l'application est lancée et qui configure les différents composants de l'application, tels que les services et les middlewares.
+
+- **_Imports.razor** : Il contient des directives de compilation Razor qui indiquent à Blazor les assemblys et les espaces de noms à inclure dans le projet.
+
+- **App.razor** :  Il définit la structure de base de l'application et inclut des composants tels que le menu de navigation, la barre latérale, le contenu principal de l'application et la sélection des langues.
+
+- **Componants** : Dossier qui contient tout les composants, qui sont des unités de code réutilisables dans notre application Blazor qui permettent de définir une interface utilisateur et un comportement spécifiques. Tel que le componant **CraftingItem** qui permet de contenir un item et qui va être utiliser plusieurs fois...
+
+- **wwwroot** :  Dossier de l'application qui contient les fichiers statiques qui sont accessibles par les utilisateurs, tels que les fichiers HTML, CSS, JavaScript, les images et les audios. Ces fichiers sont généralement servis directement par le serveur web sans passer par le code de l'application.
+
+- **Ressources** : Dossier qui va stocker des fichiers de ressources, tels que des fichiers de traduction.
+
+- **Shared** : Dossier de l'application qui contient des composants et des pages qui sont partagés par plusieurs pages et composants de l'application.
+
+- **Pages** : Contient tout les pages (HTML et CS).
+
+- **Services** : Dossier qui contient des classes de service qui sont utilisées pour fournir des fonctionnalités spécifiques à l'application. Telles que l'accès aux données, la gestion des utilisateurs ou la communication avec des API externes.
+
+- **Models** : Dossier qui va stocker les classes de modèle qui sont utilisées pour représenter les données de l'application et qui peuvent être utilisées par différents composants et pages de l'application. Pour permettre de structurer les données de l'application de manière cohérente et faciliter leur utilisation dans le code de l'application.
+
+- **Modals** : Dossier qui contient des classes de modèle qui représentent les données utilisées par l'application. Tel que la classe *Item* qui va contenir tout les informations d'un item dans l'API.
+
+- **Factories** : Dossier qui contient tout les classes de factory qui sont utilisées pour créer des objets de données ou des services.
+
+Globalement Blazor est un framework MVVM, un patron de conception qui peut être utilisé pour structurer une application Blazor en séparant la logique de présentation de l'interface utilisateur de la logique de données et de traitement. Selon ce patron de conception, l'interface utilisateur de l'application est représentée par une vue (View), qui est généralement définie en utilisant du code HTML et des composants Blazor. La logique de données et de traitement de l'application est représentée par un modèle (Model), qui peut être défini en utilisant des classes de modèle C#.
+
+Le troisième élément du patron MVVM est le ViewModel, qui est une classe C# qui joue le rôle d'intermédiaire entre la vue et le modèle. Le ViewModel expose les données et les commandes de l'application de manière adaptée à la vue, en utilisant des propriétés et des méthodes qui sont accessibles depuis la vue. Il peut également être utilisé pour effectuer des opérations de traitement de données avant de les envoyer au modèle ou pour mettre à jour le modèle en fonction des actions de l'utilisateur.
+
+
 # Environnement de Travail
 
 Notre environnement de travail se base sur plusieurs outils :👇
