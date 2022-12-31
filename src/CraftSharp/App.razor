@@ -9,7 +9,13 @@
         <NotFound>
             <CascadingAuthenticationState>
                 <LayoutView Layout="@typeof(ErrorLayout)">
-                    <CraftSharp.Pages.UnknownPage></CraftSharp.Pages.UnknownPage>
+                    @{ErrorHandler(5);}
+                    <div style="width: 100%;">
+                        <br /><br />
+                        <strong>@Localizer["Unknown Page"]</strong>
+                        <p>@Localizer["Countdown"]</p>
+                        <br /><br />
+                    </div>
                 </LayoutView>
             </CascadingAuthenticationState>
         </NotFound>
