@@ -12,11 +12,11 @@
                     @{ErrorHandler(5);}
                     <div style="width: 100%;">
                         <br /><br />
-                        <strong>Oups, la page que à laquelle vous essayez d'accéder n'existe pas !</strong>
-                        <p>Retour à la page d'accueil dans 5s</p>
+                        <strong>@Localizer["Unknown Page"]</strong>
+                        <p>@Localizer["Countdown"]</p>
                         <br /><br />
                     </div>
-                    </LayoutView>
+                </LayoutView>
             </CascadingAuthenticationState>
         </NotFound>
     </Router>

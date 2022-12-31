@@ -1,5 +1,6 @@
 ﻿using CraftSharp.Shared;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 
 namespace CraftSharp
 {
@@ -11,14 +12,18 @@ namespace CraftSharp
         [Inject]
         public ILogger<ErrorLayout> Logger { get; set; }
 
-        public async Task ErrorHandler(int countdown) {
+        [Inject]
+        public IStringLocalizer<App> Localizer { get; set; }
+
+        public async Task ErrorHandler(int countdown)
+        {
             Logger.Log(LogLevel.Error, $"Navigating to unknown page : {NavigationManager.Uri}");
-            while(countdown > 0)
+            while (countdown > 0)
             {
                 await Task.Delay(1000);
                 countdown--;
-                StateHasChanged();
             }
+            countdown = 5;
             NavigationManager.NavigateTo("index");
         }
 

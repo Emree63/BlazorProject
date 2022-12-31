@@ -36,14 +36,21 @@ namespace CraftSharp.Pages
 
         private async Task OnSubmit()
         {
-
-            await AuthStateProvider.Register(registerRequest);
-            var stringified = JsonConvert.SerializeObject(new ConnexionModel() { 
-                Password=registerRequest.Password, 
-                UserName=registerRequest.UserName}
-            );
-            var response = await httpClient.PostAsJsonAsync($"{NavigationManager.BaseUri}User/SetUser", stringified);
-            NavigationManager.NavigateTo("index");
+            try
+            {
+                await AuthStateProvider.Register(registerRequest);
+                var stringified = JsonConvert.SerializeObject(new ConnexionModel()
+                {
+                    Password = registerRequest.Password,
+                    UserName = registerRequest.UserName
+                }
+                );
+                var response = await httpClient.PostAsJsonAsync($"{NavigationManager.BaseUri}User/SetUser", stringified);
+                NavigationManager.NavigateTo("index");
+            }catch (Exception ex)
+            {
+                error = ex.Message;
+            }
 
         }
     }
