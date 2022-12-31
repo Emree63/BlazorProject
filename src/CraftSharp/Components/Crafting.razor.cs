@@ -18,6 +18,10 @@ namespace CraftSharp.Components
             Actions.CollectionChanged += OnActionsCollectionChanged;
             this.RecipeItems = new List<Item> { null, null, null, null, null, null, null, null, null };
         }
+        public void Suppression()
+        {
+            StateHasChanged();
+        }
 
         public ObservableCollection<CraftingAction> Actions { get; set; }
         public Item CurrentDragItem { get; set; }
