@@ -26,6 +26,15 @@ namespace CraftSharp.Pages
 
         private string error { get; set; }
         private ConnexionModel loginRequest { get; set; } = new ConnexionModel();
+
+        protected override async Task OnInitializedAsync()
+        {
+            if (AuthStateProvider.GetCurrentUser() != null && AuthStateProvider.GetCurrentUser().IsAuthenticated)
+            {
+                NavigationManager.NavigateTo("index");
+            }
+        }
+
         private async Task OnSubmit()
         {
             error = null;

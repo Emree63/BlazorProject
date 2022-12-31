@@ -19,7 +19,7 @@ namespace CraftSharp.Controllers
             {
                 HttpContext.Response.Cookies.Append(
                     "CurrentUser", user
-                    );
+                    ); 
             }
             return Ok(new { result = "userCookieSet" });
         }

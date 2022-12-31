@@ -24,6 +24,14 @@ namespace CraftSharp.Pages
         private string error { get; set; }
         private InscriptionModel registerRequest { get; set; } = new InscriptionModel();
 
+        protected override async Task OnInitializedAsync()
+        {
+            if (AuthStateProvider.GetCurrentUser() != null && AuthStateProvider.GetCurrentUser().IsAuthenticated)
+            {
+                NavigationManager.NavigateTo("index");
+            }
+        }
+
         private async Task OnSubmit()
         {
 
