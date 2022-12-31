@@ -1,4 +1,5 @@
 ﻿using CraftSharp.Models;
+using CraftSharp.Pages;
 using CraftSharp.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -22,6 +23,7 @@ namespace CraftSharp.Shared
         [Inject]
         public HttpClient httpClient { get; set; }
 
+
         [CascadingParameter]
         private Task<AuthenticationState> AuthenticationState { get; set; }
 
@@ -34,16 +36,6 @@ namespace CraftSharp.Shared
                 NavigationManager.NavigateTo("/");
             }
             isAdmin();
-        }
-
-        void goInscription()
-        {
-            NavigationManager.NavigateTo("inscription");
-        }
-
-        void goConnexion()
-        {
-            NavigationManager.NavigateTo("connexion");
         }
 
         async public void isAdmin()

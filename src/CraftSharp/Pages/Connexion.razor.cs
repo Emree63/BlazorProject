@@ -24,6 +24,7 @@ namespace CraftSharp.Pages
         [Inject]
         public HttpClient httpClient { get; set; }
 
+
         private string error { get; set; }
         private ConnexionModel loginRequest { get; set; } = new ConnexionModel();
 

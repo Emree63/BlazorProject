@@ -10,7 +10,6 @@
 
 @{
     Layout = "_Layout";
-    Console.WriteLine("==============START==============");
     var response = await httpClient.GetAsync($"https://localhost:7139/User/GetUser");
     string jsonUser = await response.Content.ReadAsStringAsync();
     var user = new ConnexionModel();

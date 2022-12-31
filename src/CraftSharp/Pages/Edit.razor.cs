@@ -39,6 +39,7 @@ namespace CraftSharp.Pages
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; }
 
+
         protected override async Task OnInitializedAsync()
         {
             var item = await DataService.GetById(Id);
@@ -52,7 +53,6 @@ namespace CraftSharp.Pages
         private async void HandleValidSubmit()
         {
             await DataService.Update(Id, itemModel);
-
             NavigationManager.NavigateTo("list");
         }
 

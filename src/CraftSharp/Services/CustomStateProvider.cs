@@ -13,12 +13,14 @@ namespace CraftSharp.Services
     public class CustomStateProvider : AuthenticationStateProvider
     {
         private readonly IAuthService _authService;
+        private readonly ILogger<CustomStateProvider> _logger;
 
         private CurrentUser _currentUser { get; set; }
 
-        public CustomStateProvider(IAuthService authService)
+        public CustomStateProvider(IAuthService authService, ILogger<CustomStateProvider> logger)
         {
             this._authService = authService;
+            this._logger = logger;
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
@@ -35,7 +37,7 @@ namespace CraftSharp.Services
             }
             catch (HttpRequestException ex)
             {
-                Console.WriteLine("Request failed:" + ex);
+                _logger.Log(LogLevel.Error, $"Auth Request failed : {ex}");
             }
 
             return new AuthenticationState(new ClaimsPrincipal(identity));
@@ -48,12 +50,14 @@ namespace CraftSharp.Services
             CurrentUser user;
             user = _authService.GetUser(loginParameters.UserName);
             _currentUser = user;
+            _logger.Log(LogLevel.Information, $"Login : {_currentUser.UserName}");
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
         public async Task Logout()
         {
-
+            _logger.Log(LogLevel.Information, $"Logout : {_currentUser.UserName}");
+            _authService.Logout(_currentUser);
             _currentUser = new CurrentUser();
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
@@ -65,19 +69,16 @@ namespace CraftSharp.Services
             // No error - Login the user
             var user = _authService.GetUser(registerParameters.UserName);
             _currentUser = user;
+            _logger.Log(LogLevel.Information, $"Register :  {_currentUser.UserName}");
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
         public CurrentUser GetCurrentUser()
         {
-
             if (_currentUser != null && _currentUser.IsAuthenticated)
             {
-                Console.WriteLine("GETUSER: " + _currentUser.UserName);
                 return _currentUser;
             }
-            Console.WriteLine("GETUSER: FAIL");
-
             return new CurrentUser();
         }
     }

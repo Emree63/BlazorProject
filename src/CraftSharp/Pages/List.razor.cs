@@ -5,6 +5,7 @@ using Blazorise.DataGrid;
 using CraftSharp.Modals;
 using CraftSharp.Models;
 using CraftSharp.Services;
+using CraftSharp.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 
@@ -34,10 +35,14 @@ namespace CraftSharp.Pages
         [Inject]
         public IWebHostEnvironment WebHostEnvironment { get; set; }
 
+        [Inject]
+        public ILogger<List> Logger { get; set; }
+
         private async Task OnReadData(DataGridReadDataEventArgs<Item> e)
         {
             if (e.CancellationToken.IsCancellationRequested)
             {
+                Logger.Log(LogLevel.Critical, $"Failed to get api data ! - {e}");
                 return;
             }
 
@@ -59,7 +64,6 @@ namespace CraftSharp.Pages
             {
                 return;
             }
-
             await DataService.Delete(id);
 
             // Reload the page

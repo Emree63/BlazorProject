@@ -1,4 +1,5 @@
 ﻿using CraftSharp.Models;
+using CraftSharp.Pages;
 using CraftSharp.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Localization;
@@ -12,6 +13,7 @@ namespace CraftSharp.Controllers
     [Microsoft.AspNetCore.Mvc.Route("[controller]/[action]")]
     public class UserController : Controller
     {
+
         [HttpPost]
         public IActionResult SetUser([FromBody] String user)
         {

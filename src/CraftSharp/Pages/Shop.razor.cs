@@ -15,6 +15,9 @@ namespace CraftSharp.Pages
         [Inject]
         public IStringLocalizer<Shop> Localizer { get; set; }
 
+        [Inject]
+        public ILogger<Shop> Logger { get; set; }
+
         List<ShopOfferModel> offers = new List<ShopOfferModel>()
         {
             new ShopOfferModel()
@@ -54,6 +57,7 @@ namespace CraftSharp.Pages
         {
             if (offer.InputAmount <= AuthService.GetCurrentUser().numberOfEmeralds)
             {
+                Logger.Log(LogLevel.Information, $"User {AuthService.GetCurrentUser().UserName} bought {offer.OutputAmount} keys for {offer.InputAmount} emeralds.");
                 AuthService.GetCurrentUser().numberOfEmeralds -= offer.InputAmount;
                 AuthService.GetCurrentUser().NumberOfKeys += offer.OutputAmount;
             }

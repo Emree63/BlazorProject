@@ -21,6 +21,7 @@ using Microsoft.JSInterop;
 using CraftSharp.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -41,7 +42,6 @@ builder.Services.AddScoped<UserController>();
 builder.Services.AddHttpClient();
 
 builder.Services.AddBlazoredModal();
-builder.Logging.AddConfiguration(builder.Configuration.GetSection("Logging"));
 
 builder.Services
    .AddBlazorise()

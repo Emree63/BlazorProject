@@ -8,6 +8,7 @@ namespace CraftSharp.Pages
 {
     public partial class Add
     {
+
         /// <summary>
         /// The default enchant categories.
         /// </summary>
@@ -36,7 +37,6 @@ namespace CraftSharp.Pages
         private async void HandleValidSubmit()
         {
             await DataService.Add(itemModel);
-
             NavigationManager.NavigateTo("list");
         }
 

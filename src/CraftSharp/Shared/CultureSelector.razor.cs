@@ -6,6 +6,9 @@ namespace CraftSharp.Shared
 {
     public partial class CultureSelector
     {
+        [Inject]
+        ILogger<CultureSelector> Logger { get; set; }   
+
         private CultureInfo[] supportedCultures = new[]
 {
         new CultureInfo("en-US"),
@@ -28,6 +31,7 @@ namespace CraftSharp.Shared
                 var uri = new Uri(this.NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
                 var query = $"?culture={Uri.EscapeDataString(culture)}&" + $"redirectUri={Uri.EscapeDataString(uri)}";
 
+                Logger.Log(LogLevel.Debug, $"Culture change - {culture}");
                 // Redirect the user to the culture controller to set the cookie
                 this.NavigationManager.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
 

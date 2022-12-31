@@ -29,14 +29,16 @@ namespace CraftSharp.Pages
         [Inject]
         public IStringLocalizer<Opening> Localizer { get; set; }
 
+        [Inject]
+        public ILogger<Opening> Logger { get; set; }
+
         int totalItem;
         List<Item> items;
 
         protected override async Task OnInitializedAsync()
         {
-            totalItem = await DataService.Count();
-
-            items = await DataService.List(0, totalItem);
+                totalItem = await DataService.Count();
+                items = await DataService.List(0, totalItem);
         }
 
         bool canOpen()
@@ -59,7 +61,6 @@ namespace CraftSharp.Pages
                         AuthStateProvider.GetCurrentUser().addItem(randomItem);
                     }
                 }
-                Console.WriteLine(randomItem.Name);
                 openingAnimation();
             }
             else
