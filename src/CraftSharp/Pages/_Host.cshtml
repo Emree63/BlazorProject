@@ -1,8 +1,24 @@
 ﻿@page "/"
 @namespace CraftSharp.Pages
+@using CraftSharp.Models;
+@using CraftSharp.Services;
+@using Microsoft.AspNetCore.Components;
+@using Newtonsoft.Json;
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject CustomStateProvider authService;
+@inject HttpClient httpClient;
+
 @{
     Layout = "_Layout";
+    Console.WriteLine("==============START==============");
+    var response = await httpClient.GetAsync($"https://localhost:7139/User/GetUser");
+    string jsonUser = await response.Content.ReadAsStringAsync();
+    var user = new ConnexionModel();
+    if (jsonUser != null && jsonUser.Length != 0)
+    {
+        user = JsonConvert.DeserializeObject<ConnexionModel>(jsonUser);
+            await authService.Login(user);
+    }
 }
 <component type="typeof(App)" render-mode="ServerPrerendered"/>
 

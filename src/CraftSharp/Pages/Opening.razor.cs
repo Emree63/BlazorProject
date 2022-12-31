@@ -23,10 +23,7 @@ namespace CraftSharp.Pages
         [Inject]
         public IDataService DataService { get; set; }
         [Inject]
-        public CustomStateProvider AuthService { get; set; }
-        [Inject]
         public CustomStateProvider AuthStateProvider { get; set; }
-
         int NumberOfKeys { get; set; } = 0;
         int CostInKeys { get; set; } = 1;
 
@@ -42,7 +39,7 @@ namespace CraftSharp.Pages
 
             items = await DataService.List(0, totalItem);
 
-            NumberOfKeys = AuthService.GetCurrentUser().NumberOfKeys;
+            NumberOfKeys = AuthStateProvider.GetCurrentUser().NumberOfKeys;
         }
 
         bool canOpen()

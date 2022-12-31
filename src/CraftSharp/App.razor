@@ -2,17 +2,16 @@
 <CascadingBlazoredModal>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
-            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(CraftLayout)" />
-            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+                <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(CraftLayout)" />
+                <FocusOnNavigate RouteData="@routeData" Selector="h1" />
         </Found>
         <NotFound>
-           <CascadingAuthenticationState>
+            <CascadingAuthenticationState>
                     <LayoutView Layout="@typeof(CraftLayout)">
                         <p>Sorry, there's nothing at this address.</p>
                     </LayoutView>
-        </CascadingAuthenticationState>
+            </CascadingAuthenticationState>
         </NotFound>
     </Router>
 </CascadingBlazoredModal>
-
 

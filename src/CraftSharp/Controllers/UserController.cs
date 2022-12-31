@@ -21,11 +21,10 @@ namespace CraftSharp.Controllers
                     "CurrentUser", user
                     );
             }
-            Console.WriteLine("USER : " + user);
-
             return Ok(new { result = "userCookieSet" });
         }
 
+        [HttpDelete]
         public IActionResult DeleteUser()
         {
 
@@ -36,10 +35,13 @@ namespace CraftSharp.Controllers
 
         }
 
+        [HttpGet]
         public IActionResult GetUser()
         {
             var jsonUser = HttpContext.Request.Cookies["CurrentUser"];
-            return Ok(new { result = JsonConvert.DeserializeObject<CurrentUser>(jsonUser) });
+            return Ok(jsonUser);
+
         }
+        
     }
 }

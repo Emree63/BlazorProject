@@ -28,9 +28,9 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddOptions();
 builder.Services.AddAuthorizationCore();
-builder.Services.AddScoped<CustomStateProvider>();
-builder.Services.AddScoped<AuthenticationStateProvider>(s => s.GetRequiredService<CustomStateProvider>());
-builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddSingleton<CustomStateProvider>();
+builder.Services.AddSingleton<AuthenticationStateProvider>(s => s.GetRequiredService<CustomStateProvider>());
+builder.Services.AddSingleton<IAuthService, AuthService>();
 
 // Add the controller of the app
 builder.Services.AddControllers();

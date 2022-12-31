@@ -26,15 +26,13 @@ namespace CraftSharp.Pages
 
         private string error { get; set; }
         private ConnexionModel loginRequest { get; set; } = new ConnexionModel();
-
         private async Task OnSubmit()
         {
             error = null;
             try
             {
                 await AuthStateProvider.Login(loginRequest);
-
-                var stringified = JsonConvert.SerializeObject(AuthStateProvider.GetCurrentUser());
+                var stringified = JsonConvert.SerializeObject(loginRequest);
                 var response = await httpClient.PostAsJsonAsync($"{NavigationManager.BaseUri}User/SetUser", stringified);
                 NavigationManager.NavigateTo("index");
 

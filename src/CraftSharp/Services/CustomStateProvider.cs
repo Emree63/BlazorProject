@@ -7,16 +7,12 @@ using Microsoft.AspNetCore.Components;
 using Blazorise;
 using Microsoft.JSInterop;
 using Microsoft.Extensions.Caching.Memory;
-using System;
 
 namespace CraftSharp.Services
 {
     public class CustomStateProvider : AuthenticationStateProvider
     {
         private readonly IAuthService _authService;
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
 
         private CurrentUser _currentUser { get; set; }
 
@@ -52,7 +48,6 @@ namespace CraftSharp.Services
             CurrentUser user;
             user = _authService.GetUser(loginParameters.UserName);
             _currentUser = user;
-
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
@@ -60,7 +55,6 @@ namespace CraftSharp.Services
         {
 
             _currentUser = new CurrentUser();
-
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
@@ -71,18 +65,19 @@ namespace CraftSharp.Services
             // No error - Login the user
             var user = _authService.GetUser(registerParameters.UserName);
             _currentUser = user;
-
             NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
         }
 
         public CurrentUser GetCurrentUser()
         {
-            CurrentUser cacheUser;
 
             if (_currentUser != null && _currentUser.IsAuthenticated)
             {
+                Console.WriteLine("GETUSER: " + _currentUser.UserName);
                 return _currentUser;
             }
+            Console.WriteLine("GETUSER: FAIL");
+
             return new CurrentUser();
         }
     }
