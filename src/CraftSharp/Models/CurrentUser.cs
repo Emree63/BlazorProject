@@ -14,7 +14,10 @@
         {
             Inventory.Add(item);
         }
-
+        public void DeleteItem(Item item)
+        {
+            Inventory.Remove(item);
+        }
         public int getSizeInventory()
         {
             return Inventory.Count;
