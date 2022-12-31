@@ -15,10 +15,6 @@ namespace CraftSharp.Pages
         [Inject]
         public IStringLocalizer<Shop> Localizer { get; set; }
 
-        [Inject]
-        public IJSRuntime JsRuntime { get; set; }
-        int NumberOfEmeralds { get; set; } = 0;
-
         List<ShopOfferModel> offers = new List<ShopOfferModel>()
         {
             new ShopOfferModel()
@@ -48,7 +44,6 @@ namespace CraftSharp.Pages
         
         protected override async Task OnInitializedAsync()
         {
-            NumberOfEmeralds = AuthService.GetCurrentUser().numberOfEmeralds;
             foreach(ShopOfferModel offer in offers)
             {
                 animation[offer] = "";
@@ -57,9 +52,9 @@ namespace CraftSharp.Pages
 
         private async void buyKeys(ShopOfferModel offer)
         {
-            if (offer.InputAmount <= NumberOfEmeralds)
+            if (offer.InputAmount <= AuthService.GetCurrentUser().numberOfEmeralds)
             {
-                NumberOfEmeralds -= offer.InputAmount;
+                AuthService.GetCurrentUser().numberOfEmeralds -= offer.InputAmount;
                 AuthService.GetCurrentUser().NumberOfKeys += offer.OutputAmount;
             }
             else

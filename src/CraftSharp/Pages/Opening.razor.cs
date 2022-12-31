@@ -24,7 +24,6 @@ namespace CraftSharp.Pages
         public IDataService DataService { get; set; }
         [Inject]
         public CustomStateProvider AuthStateProvider { get; set; }
-        int NumberOfKeys { get; set; } = 0;
         int CostInKeys { get; set; } = 1;
 
         [Inject]
@@ -38,13 +37,11 @@ namespace CraftSharp.Pages
             totalItem = await DataService.Count();
 
             items = await DataService.List(0, totalItem);
-
-            NumberOfKeys = AuthStateProvider.GetCurrentUser().NumberOfKeys;
         }
 
         bool canOpen()
         {
-            return isChestClosed && NumberOfKeys >= CostInKeys;
+            return isChestClosed && AuthStateProvider.GetCurrentUser().NumberOfKeys >= CostInKeys;
         }
 
         async void selectRandom()
@@ -52,7 +49,7 @@ namespace CraftSharp.Pages
 
             if (canOpen())
             {
-                NumberOfKeys=NumberOfKeys-CostInKeys;
+                AuthStateProvider.GetCurrentUser().NumberOfKeys -= CostInKeys;
                 randomItem = ItemFactory.GetRandomItem(items);
                 if (AuthStateProvider.GetCurrentUser().getSizeInventory() <= 64)
                 {
