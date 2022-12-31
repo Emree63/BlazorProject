@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using Microsoft.Extensions.Localization;
 
 namespace CraftSharp.Pages
 {
@@ -24,7 +25,8 @@ namespace CraftSharp.Pages
         [Inject]
         public HttpClient httpClient { get; set; }
 
-
+        [Inject]
+        public IStringLocalizer<Connexion> Localizer { get; set; }
         private string error { get; set; }
         private ConnexionModel loginRequest { get; set; } = new ConnexionModel();
 

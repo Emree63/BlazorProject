@@ -7,6 +7,7 @@ using CraftSharp.Models;
 using CraftSharp.Services;
 using Newtonsoft.Json;
 using System.Net.Http;
+using Microsoft.Extensions.Localization;
 
 namespace CraftSharp.Pages
 {
@@ -17,7 +18,8 @@ namespace CraftSharp.Pages
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
-
+        [Inject]
+        public IStringLocalizer<Inscription> Localizer { get; set; }
         [Inject]
         public HttpClient httpClient { get; set; }
 
