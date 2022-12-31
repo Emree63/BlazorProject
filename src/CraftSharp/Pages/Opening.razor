@@ -6,12 +6,11 @@
     <Authorized>
         <div class="numberOfKeys">
             <ValueIndicator IconPath="/Images/opening_icon.png" 
-                            Value="@NumberOfKeys">
+                            Value="@AuthStateProvider.GetCurrentUser().NumberOfKeys">
             </ValueIndicator>
         </div>
     </Authorized>
 </AuthorizeView>
-
 <div class="openingPanel">
     <img src="/Images/chestBottom.png" class="chest chestOpenBottom @openAnim" />
     <img src="/Images/chest.png" class="chest chestOpen @openAnim" />

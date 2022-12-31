@@ -41,10 +41,13 @@ namespace CraftSharp.Services
 
         public void Login(ConnexionModel loginRequest)
         {
+            Console.WriteLine("LOGIN : " + loginRequest.UserName);
             var user = CurrentUser.FirstOrDefault(w => w.UserName == loginRequest.UserName && w.Password == loginRequest.Password);
 
             if (user == null)
             {
+                Console.WriteLine("LOGINFAILED");
+
                 throw new Exception("User name or password invalid !");
             }
         }

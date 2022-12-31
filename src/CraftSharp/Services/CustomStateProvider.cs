@@ -70,12 +70,14 @@ namespace CraftSharp.Services
 
         public CurrentUser GetCurrentUser()
         {
-            CurrentUser cacheUser;
 
             if (_currentUser != null && _currentUser.IsAuthenticated)
             {
+                Console.WriteLine("GETUSER: " + _currentUser.UserName);
                 return _currentUser;
             }
+            Console.WriteLine("GETUSER: FAIL");
+
             return new CurrentUser();
         }
     }

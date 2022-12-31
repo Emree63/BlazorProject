@@ -17,6 +17,9 @@ namespace CraftSharp.Pages
         private int totalItem;
 
         [Inject]
+        public CustomStateProvider AuthStateProvider { get; set; }
+
+        [Inject]
         public IStringLocalizer<List> Localizer { get; set; }
 
         [Inject]

@@ -22,7 +22,8 @@ namespace CraftSharp.Controllers
                 this.HttpContext.Response.Cookies.Append(
                     CookieRequestCultureProvider.DefaultCookieName,
                     CookieRequestCultureProvider.MakeCookieValue(
-                        new RequestCulture(culture)));
+                        new RequestCulture(culture))
+                    );
             }
 
             return this.LocalRedirect(redirectUri);

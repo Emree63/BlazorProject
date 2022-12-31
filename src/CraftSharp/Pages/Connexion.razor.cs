@@ -7,6 +7,9 @@ using CraftSharp.Models;
 using CraftSharp.Services;
 using Blazorise;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace CraftSharp.Pages
 {
@@ -17,10 +20,20 @@ namespace CraftSharp.Pages
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
-        
+
+        [Inject]
+        public HttpClient httpClient { get; set; }
 
         private string error { get; set; }
         private ConnexionModel loginRequest { get; set; } = new ConnexionModel();
+
+        protected override async Task OnInitializedAsync()
+        {
+            if (AuthStateProvider.GetCurrentUser() != null && AuthStateProvider.GetCurrentUser().IsAuthenticated)
+            {
+                NavigationManager.NavigateTo("index");
+            }
+        }
 
         private async Task OnSubmit()
         {
@@ -28,7 +41,10 @@ namespace CraftSharp.Pages
             try
             {
                 await AuthStateProvider.Login(loginRequest);
+                var stringified = JsonConvert.SerializeObject(loginRequest);
+                var response = await httpClient.PostAsJsonAsync($"{NavigationManager.BaseUri}User/SetUser", stringified);
                 NavigationManager.NavigateTo("index");
+
             }
             catch (Exception ex)
             {

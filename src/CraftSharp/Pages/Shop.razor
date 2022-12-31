@@ -6,7 +6,7 @@
     <Authorized>
         <div class="NumberOfEmeralds">
             <ValueIndicator IconPath="/Images/shop_icon.png" 
-                            Value="@NumberOfEmeralds">
+                            Value="@AuthService.GetCurrentUser().numberOfEmeralds">
             </ValueIndicator>
         </div>
     </Authorized>
