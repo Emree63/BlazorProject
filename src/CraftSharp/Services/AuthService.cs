@@ -8,8 +8,10 @@ namespace CraftSharp.Services
     {
         private static readonly List<AppUser> CurrentUser;
 
+
         static AuthService()
         {
+            
             CurrentUser = new List<AppUser>
             {
                 new AppUser { UserName = "Admin", Password = "123456", Roles = new List<UserRoles> { UserRoles.Admin }, numberOfKeys=999 }
@@ -46,6 +48,18 @@ namespace CraftSharp.Services
             if (user == null)
             {
                 throw new Exception("User name or password invalid !");
+            }
+        }
+
+        public void Logout(CurrentUser user)
+        {
+            var idx = CurrentUser.FindIndex(u => u.UserName == user.UserName);
+            if(idx != -1)
+            {
+                CurrentUser[idx].numberOfEmeralds = user.numberOfEmeralds;
+                CurrentUser[idx].numberOfKeys = user.NumberOfKeys;
+                CurrentUser[idx].inventory = user.Inventory;
+
             }
         }
 

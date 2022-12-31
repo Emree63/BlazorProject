@@ -24,8 +24,6 @@ namespace CraftSharp.Pages
         [Inject]
         public HttpClient httpClient { get; set; }
 
-        [Inject]
-        public ILogger<Connexion> Logger { get; set; }
 
         private string error { get; set; }
         private ConnexionModel loginRequest { get; set; } = new ConnexionModel();
@@ -44,7 +42,6 @@ namespace CraftSharp.Pages
             try
             {
                 await AuthStateProvider.Login(loginRequest);
-                Logger.Log(LogLevel.Information, $"Login : {loginRequest.UserName}");
                 var stringified = JsonConvert.SerializeObject(loginRequest);
                 var response = await httpClient.PostAsJsonAsync($"{NavigationManager.BaseUri}User/SetUser", stringified);
                 NavigationManager.NavigateTo("index");
@@ -52,7 +49,6 @@ namespace CraftSharp.Pages
             }
             catch (Exception ex)
             {
-                Logger.Log(LogLevel.Error, $"Login Failure : {ex}");
                 error = ex.Message;
             }
         }

@@ -6,6 +6,7 @@ namespace CraftSharp.Services
     {
         CurrentUser GetUser(string userName);
         void Login(ConnexionModel loginRequest);
+        void Logout(CurrentUser user);
         void Register(InscriptionModel registerRequest);
     }
 }

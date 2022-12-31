@@ -23,8 +23,6 @@ namespace CraftSharp.Shared
         [Inject]
         public HttpClient httpClient { get; set; }
 
-        [Inject]
-        public ILogger<HeaderLayout> Logger { get; set; }
 
         [CascadingParameter]
         private Task<AuthenticationState> AuthenticationState { get; set; }
@@ -48,7 +46,6 @@ namespace CraftSharp.Shared
         private async Task LogoutClick()
         {
             await AuthStateProvider.Logout();
-            Logger.Log(LogLevel.Information, $"Logout : {AuthStateProvider.GetCurrentUser().UserName}");
             await httpClient.DeleteAsync($"{NavigationManager.BaseUri}User/DeleteUser");
 
             NavigationManager.NavigateTo("/inscription");
