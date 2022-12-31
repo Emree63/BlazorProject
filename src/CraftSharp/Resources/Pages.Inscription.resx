@@ -127,7 +127,7 @@
     <value>Enter your password</value>
   </data>
   <data name="pseudo" xml:space="preserve">
-    <value>Enter your nickname</value>
+    <value>Enter your username</value>
   </data>
   <data name="register" xml:space="preserve">
     <value>register</value>

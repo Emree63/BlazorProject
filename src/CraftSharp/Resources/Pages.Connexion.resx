@@ -121,13 +121,13 @@
     <value>Create an account</value>
   </data>
   <data name="Enter" xml:space="preserve">
-    <value>To log in</value>
+    <value>Log in</value>
   </data>
   <data name="mdp" xml:space="preserve">
     <value>Enter your password</value>
   </data>
   <data name="pseudo" xml:space="preserve">
-    <value>Enter your nickname</value>
+    <value>Enter your username</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Login</value>
