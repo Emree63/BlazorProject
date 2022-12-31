@@ -1,0 +1,22 @@
+kind: pipeline
+type: docker
+name: default
+ 
+trigger:
+  event:
+    - push
+
+steps:
+  - name: build
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    commands:
+      - cd src/CraftSharp
+      - dotnet restore CraftSharp.sln
+      - dotnet build CraftSharp.sln -c Release --no-restore
+  - name: tests
+    image: mcr.microsoft.com/dotnet/sdk:6.0
+    commands:
+      - cd src/CraftSharp
+      - dotnet restore CraftSharp.sln
+      - dotnet test CraftSharp.sln --no-restore
+    depends_on: [build]
