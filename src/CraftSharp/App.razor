@@ -8,8 +8,12 @@
         </Found>
         <NotFound>
             <CascadingAuthenticationState>
-                    <LayoutView Layout="@typeof(CraftLayout)">
-                        <p>Sorry, there's nothing at this address.</p>
+                    <LayoutView Layout="@typeof(ErrorLayout)">
+                    <div style="width: 100%;">
+                        <br /><br />
+                        <strong>Oups, la page que à laquelle vous essayez d'accéder n'existe pas !</strong>
+                        <br /><br />
+                    </div>
                     </LayoutView>
             </CascadingAuthenticationState>
         </NotFound>
