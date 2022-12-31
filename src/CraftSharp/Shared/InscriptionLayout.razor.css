@@ -12,6 +12,7 @@ body {
     background-image: url("Images/fond.jpg");
     width: 100%;
     min-height: 100vh;
+    color: white;
 }
 
 header img {

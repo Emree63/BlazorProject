@@ -3,32 +3,32 @@
 @inject NavigationManager NavManager
 
     <div class="option">
-        <h1>Inscription</h1>
+    <h1>@Localizer["Title"]</h1>
         <div>
           <EditForm class="form-signin" OnValidSubmit="@OnSubmit" Model="@registerRequest">
                 <DataAnnotationsValidator />
                
 
                 <label for="inputUsername" class="sr-only">Pseudonyme</label>
-                <InputText id="inputUsername" class="form-control" placeholder="Entrez votre pseudonyme" autofocus @bind-Value="@registerRequest.UserName" />
+                <InputText id="inputUsername" class="form-control" placeholder="@Localizer["pseudo"]" autofocus @bind-Value="@registerRequest.UserName" />
                 <ValidationMessage For="@(() => registerRequest.UserName)" />
 
                  <br />
                 <label for="inputPassword" class="sr-only">Mot de passe</label>
-                <InputText type="password" id="inputPassword" class="form-control" placeholder="Entrez votre mot de passe" @bind-Value="@registerRequest.Password" />
+                <InputText type="password" id="inputPassword" class="form-control" placeholder="@Localizer["mdp"]" @bind-Value="@registerRequest.Password" />
                 <ValidationMessage For="@(() => registerRequest.Password)" />
 
                 <br />
                 <label for="inputPasswordConfirm" class="sr-only">Confirmation</label>
-                <InputText type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirmez votre mot de passe" @bind-Value="@registerRequest.PasswordConfirm" />
+                <InputText type="password" id="inputPasswordConfirm" class="form-control" placeholder="@Localizer["Confirm"]" @bind-Value="@registerRequest.PasswordConfirm" />
                 <ValidationMessage For="@(() => registerRequest.PasswordConfirm)" />
 
                 <br />
-                <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">@Localizer["register"]</button>
 
                 <label class="text-danger">@error</label>
                 <NavLink href="connexion">
-                    <h6 class="font-weight-normal text-center" style="color: white">Vous avez un compte ? Connectez vous</h6>
+                <h6 class="font-weight-normal text-center" style="color: white">@Localizer["Account"]</h6>
                 </NavLink>
         </EditForm>
             
