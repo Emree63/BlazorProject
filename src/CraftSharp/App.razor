@@ -8,10 +8,12 @@
         </Found>
         <NotFound>
             <CascadingAuthenticationState>
-                    <LayoutView Layout="@typeof(ErrorLayout)">
+                <LayoutView Layout="@typeof(ErrorLayout)">
+                    @{ErrorHandler(5);}
                     <div style="width: 100%;">
                         <br /><br />
                         <strong>Oups, la page que à laquelle vous essayez d'accéder n'existe pas !</strong>
+                        <p>Retour à la page d'accueil dans 5s</p>
                         <br /><br />
                     </div>
                     </LayoutView>
