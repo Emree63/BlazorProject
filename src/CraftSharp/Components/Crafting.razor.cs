@@ -1,5 +1,6 @@
 ﻿using CraftSharp.Models;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Localization;
 using Microsoft.JSInterop;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -9,7 +10,8 @@ namespace CraftSharp.Components
     public partial class Crafting
     {
         private Item _recipeResult;
-
+        [Inject]
+        public IStringLocalizer<Crafting> Localizer { get; set; }
         public Crafting()
         {
             Actions = new ObservableCollection<CraftingAction>();
