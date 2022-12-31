@@ -26,8 +26,6 @@ namespace CraftSharp.Pages
         public CustomStateProvider AuthService { get; set; }
         [Inject]
         public CustomStateProvider AuthStateProvider { get; set; }
-        [CascadingParameter]
-        public Task<AuthenticationState> Context { get; set; }
 
         int NumberOfKeys { get; set; } = 0;
         int CostInKeys { get; set; } = 1;
