@@ -65,7 +65,17 @@ namespace CraftSharp.Services
 
         public void Register(InscriptionModel registerRequest)
         {
-            CurrentUser.Add(new AppUser { UserName = registerRequest.UserName, Password = registerRequest.Password, Roles = new List<UserRoles> { UserRoles.User } });
+            var user = CurrentUser.FirstOrDefault(w => w.UserName == registerRequest.UserName);
+
+            if (user == null)
+            {
+                CurrentUser.Add(new AppUser { UserName = registerRequest.UserName, Password = registerRequest.Password, Roles = new List<UserRoles> { UserRoles.User } });
+            }
+            else
+            {
+                throw new Exception("Username already taken !");
+
+            }
         }
     }
 }
