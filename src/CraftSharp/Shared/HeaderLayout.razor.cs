@@ -1,4 +1,5 @@
 ﻿using CraftSharp.Models;
+using CraftSharp.Pages;
 using CraftSharp.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -22,6 +23,9 @@ namespace CraftSharp.Shared
         [Inject]
         public HttpClient httpClient { get; set; }
 
+        [Inject]
+        public ILogger<HeaderLayout> Logger { get; set; }
+
         [CascadingParameter]
         private Task<AuthenticationState> AuthenticationState { get; set; }
 
@@ -36,16 +40,6 @@ namespace CraftSharp.Shared
             isAdmin();
         }
 
-        void goInscription()
-        {
-            NavigationManager.NavigateTo("inscription");
-        }
-
-        void goConnexion()
-        {
-            NavigationManager.NavigateTo("connexion");
-        }
-
         async public void isAdmin()
         {
             var roles = AuthStateProvider.GetCurrentUser().Roles;
@@ -54,6 +48,7 @@ namespace CraftSharp.Shared
         private async Task LogoutClick()
         {
             await AuthStateProvider.Logout();
+            Logger.Log(LogLevel.Information, $"Logout : {AuthStateProvider.GetCurrentUser().UserName}");
             await httpClient.DeleteAsync($"{NavigationManager.BaseUri}User/DeleteUser");
 
             NavigationManager.NavigateTo("/inscription");

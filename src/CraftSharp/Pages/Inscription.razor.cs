@@ -21,6 +21,9 @@ namespace CraftSharp.Pages
         [Inject]
         public HttpClient httpClient { get; set; }
 
+        [Inject]
+        public ILogger<Inscription> Logger { get; set; }
+
         private string error { get; set; }
         private InscriptionModel registerRequest { get; set; } = new InscriptionModel();
 
@@ -28,6 +31,7 @@ namespace CraftSharp.Pages
         {
             if (AuthStateProvider.GetCurrentUser() != null && AuthStateProvider.GetCurrentUser().IsAuthenticated)
             {
+                Logger.Log(LogLevel.Information, $"Automatic login : {AuthStateProvider.GetCurrentUser().UserName}");
                 NavigationManager.NavigateTo("index");
             }
         }
@@ -36,6 +40,7 @@ namespace CraftSharp.Pages
         {
 
             await AuthStateProvider.Register(registerRequest);
+            Logger.Log(LogLevel.Information, $"Register : {registerRequest.UserName}");
             var stringified = JsonConvert.SerializeObject(new ConnexionModel() { 
                 Password=registerRequest.Password, 
                 UserName=registerRequest.UserName}
