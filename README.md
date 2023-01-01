@@ -89,14 +89,14 @@ Notre application possède plusieurs langue tel que :
 - Le français
 - Le turc
 
-Si vous êtes plus habilités avec une plus que les autres, vous pouvez la changer dans la page **Connexion** et **Inscription** en cliquant juste en haut en droite de la page : 
+Si vous êtes plus habilités avec une plus que les autres, vous pouvez la changer dans la page **Connexion** et **Inscription** en cliquant juste en haut à gauche de la page : 
 <div align = center>
 
 ![HowToChange](doc/Images/ChangerLangue1.png)
 
 </div>
 
-Pour les autres, il se trouvera tout en bas à droite de la page :
+Pour les autres, il se trouvera tout en bas à gauche de la page :
 <div align = center>
 
 ![HowToChange](doc/Images/ChangerLangue2.png)
@@ -108,7 +108,7 @@ Pour les autres, il se trouvera tout en bas à droite de la page :
 Pas très compliqué! Tout d'abord il est à savoir qu'il existe deux utilisateurs différents avec des droits qui sont aussi différents (Même si ce n'est pas tant que sa): 
 
 - L'utilisateur simple qui s'est inscrit sur l'application via le formulaire d'inscription.
-- L'admin enregistrer directement dans l'application (Il n'y a pas de formulaire d'inscription pour être admin), qui lui à en plus la possibilités d'accéder directement avec l'API.
+- L'admin enregistrer directement dans l'application (Il n'y a pas de formulaire d'inscription pour être admin), qui lui à en plus la possibilité d'accéder directement avec l'API.
 
 Vous voulez être Admin et profiter pleinement des fonctionnalités de l'Application, voici un compte avec lequel vous pourrez vous connecter:
 
@@ -165,7 +165,7 @@ Lorsqu'on clique sur *Ouvrir* (il faut aussi prendre en compte qu'on perd une cl
 
 </div>
 
-Une fois après avoir eu plein d'items, il peut aller dans la page **Inventaire** situé dans le menu, pour retrouver son inventaire avec tous les items qu'il à accumuler et crafter ce que bon lui semble (Il existe des milliers de combinaisons possible! pour les connaîtres voici un [site](https://fr-minecraft.net/5-aide-crafting-sur-minecraft.php) qui les regroupes tous), il a aussi la possibilités de supprimer un item de son inventaire en glissant l'objet dans la *corbeille*:
+Une fois après avoir eu plein d'items, il peut aller dans la page **Inventaire** situé dans le menu, pour retrouver son inventaire avec tous les items qu'il à accumuler et crafter ce que bon lui semble (Il existe des milliers de combinaisons possible! pour les connaîtres voici un [site](https://fr-minecraft.net/5-aide-crafting-sur-minecraft.php) qui les regroupes tous), il a aussi la possibilité de supprimer un item de son inventaire en glissant l'objet dans la *corbeille*:
 
 <div align = center>
 
@@ -179,7 +179,7 @@ Ai-je vraiment besoin d'expliquer le bouton **Déconnexion** ?!
 
 Maintenant passons à la gestion des erreurs sur notre application !
 <br>
-Commençons par la page **Connexion** et **Inscription**, comme tout bonne application, nous veillons à faire attention :
+Commençons par la page **Connexion** et **Inscription**, comme toute bonne application, nous veillons à faire attention :
 
 -A si le pseudonyme qu'on choisit lors de l'inscription n'existe pas :
 <div align = center>
@@ -193,7 +193,7 @@ Commençons par la page **Connexion** et **Inscription**, comme tout bonne appli
 ![Erreur pseudonyme ou mot de passe](doc/Images/GestionErreur2.png)
 
 </div>
--Mais aussi la taille des élements qu'on rentre lors de l'inscription et la confirmation du mot de passe :
+-Mais aussi la taille des éléments qu'on rentre lors de l'inscription et la confirmation du mot de passe :
 <div align = center>
 
 ![Erreur Taille Inscription](doc/Images/GestionErreur3.png)
@@ -205,9 +205,9 @@ Commençons par la page **Connexion** et **Inscription**, comme tout bonne appli
 ![Erreur Url inexistant](doc/Images/GestionErreurUrl.png)
 
 </div>
-:information_source: Va être alors rédirigé sur une page d'erreur qui au bout de 5secondes le ramènera à la page d'accueil.
+:information_source: Va être alors redirigé sur une page d'erreur qui au bout de 5secondes le ramènera à la page d'accueil.
 
-- ### Comment sa marche au niveau du code ? 
+- ### Comment ça marche au niveau du code ? 
 
 <div align = center>
 
@@ -215,9 +215,9 @@ Commençons par la page **Connexion** et **Inscription**, comme tout bonne appli
 
 </div>
 
-Nous avons tout d'abord, dans la solution deux grands projets, un qui l'api qui va contenir tout les objets(**Minecraft.Crafting.Api**) et l'autre qui regroupe tout le code de notre application qui va utiliser l'API (**CraftSharp**) !
+Nous avons tout d'abord, dans la solution deux grands projets, un qui est l'api qui va contenir tous les objets(**Minecraft.Crafting.Api**) et l'autre qui regroupe tout le code de notre application qui va utiliser l'API (**CraftSharp**) !
 
-Notre application est composé de plusieurs dossiers et fichier importants :
+Notre application est composée de plusieurs dossiers et fichier importants :
 
 - **Program.cs** :  Il contient le code qui est exécuté lorsque l'application est lancée et qui configure les différents composants de l'application, tels que les services et les middlewares.
 
@@ -225,7 +225,7 @@ Notre application est composé de plusieurs dossiers et fichier importants :
 
 - **App.razor** :  Il définit la structure de base de l'application et inclut des composants tels que le menu de navigation, la barre latérale, le contenu principal de l'application et la sélection des langues.
 
-- **Componants** : Dossier qui contient tout les composants, qui sont des unités de code réutilisables dans notre application Blazor qui permettent de définir une interface utilisateur et un comportement spécifiques. Tel que le componant **CraftingItem** qui permet de contenir un item et qui va être utiliser plusieurs fois...
+- **Componants** : Dossier qui contient tous les composants, qui sont des unités de code réutilisables dans notre application Blazor qui permettent de définir une interface utilisateur et un comportement spécifiques. Tel que le componant **CraftingItem** qui permet de contenir un item et qui va être utilisé  plusieurs fois...
 
 - **wwwroot** :  Dossier de l'application qui contient les fichiers statiques qui sont accessibles par les utilisateurs, tels que les fichiers HTML, CSS, JavaScript, les images et les audios. Ces fichiers sont généralement servis directement par le serveur web sans passer par le code de l'application.
 
@@ -233,15 +233,15 @@ Notre application est composé de plusieurs dossiers et fichier importants :
 
 - **Shared** : Dossier de l'application qui contient des composants et des pages qui sont partagés par plusieurs pages et composants de l'application.
 
-- **Pages** : Contient tout les pages (HTML et CS).
+- **Pages** : Contient toutes les pages (HTML et CS).
 
 - **Services** : Dossier qui contient des classes de service qui sont utilisées pour fournir des fonctionnalités spécifiques à l'application. Telles que l'accès aux données, la gestion des utilisateurs ou la communication avec des API externes.
 
 - **Models** : Dossier qui va stocker les classes de modèle qui sont utilisées pour représenter les données de l'application et qui peuvent être utilisées par différents composants et pages de l'application. Pour permettre de structurer les données de l'application de manière cohérente et faciliter leur utilisation dans le code de l'application.
 
-- **Modals** : Dossier qui contient des classes de modèle qui représentent les données utilisées par l'application. Tel que la classe *Item* qui va contenir tout les informations d'un item dans l'API.
+- **Modals** : Dossier qui contient des classes de modèle qui représentent les données utilisées par l'application. Tel que la classe *Item* qui va contenir toutes les informations d'un item dans l'API.
 
-- **Factories** : Dossier qui contient tout les classes de factory qui sont utilisées pour créer des objets de données ou des services.
+- **Factories** : Dossier qui contient toutes les classes de factory qui sont utilisées pour créer des objets de données ou des services.
 
 Globalement Blazor est un framework MVVM, un patron de conception qui peut être utilisé pour structurer une application Blazor en séparant la logique de présentation de l'interface utilisateur de la logique de données et de traitement. Selon ce patron de conception, l'interface utilisateur de l'application est représentée par une vue (View), qui est généralement définie en utilisant du code HTML et des composants Blazor. La logique de données et de traitement de l'application est représentée par un modèle (Model), qui peut être défini en utilisant des classes de modèle C#.
 
